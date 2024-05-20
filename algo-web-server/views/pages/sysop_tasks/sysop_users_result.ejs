@@ -1,0 +1,50 @@
+<html>
+	<%- include('../../partials/authenticated_navbar.ejs') %>
+    <script>
+        function handleEditUser(username) {
+            window.location.href = `/account?username=${username}`;
+        }
+    </script>
+    <body>
+        <div class="main-body-container">
+            <h3 class="text-center">All user matches</h3>
+            <table class="table container" style="margin-top:2vw">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Username</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">McGill ID</th>
+                    <th scope="col">User Types</th>
+                    <th scope="col">Associated Courses</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody class="container">
+                    <% for(let user of users) { %>
+                  <tr>
+                    <td style="vertical-align: middle;"><%= user.username %></td>
+                    <td style="vertical-align: middle;"><%= user.firstName %></td>
+                    <td style="vertical-align: middle;"><%= user.lastName %></td>
+                    <td style="vertical-align: middle;"><%= user.email %></td>
+                    <td style="vertical-align: middle;"><%= user.mcGillId %></input></td>
+                    <td style="vertical-align: middle;"><%= user.userTypes.toString()%></input></td>
+                    <td style="vertical-align: middle;"><%= user.registeredCourses.toString()%></input></td>
+                    <td>
+                        <button type="submit" class="btn btn-outline-secondary" onclick="handleEditUser('<%= user.username %>')">Edit</button>
+                    <td>
+                        <form action="/account/remove" method="POST" style="margin:0">
+                            <input style="display:none" type="text" name="username" value="<%= user.username %>"></input>
+                            <button type="submit" class="btn btn-outline-danger">Delete</button>
+                        </form>
+                    </td>
+                    
+                  </tr>
+                  <% } %>
+                </tbody>
+              </table>
+        </div>
+    </body>
+</html>

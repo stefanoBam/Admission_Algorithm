@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+    <%- include('../../partials/authenticated_navbar.ejs') %>
+
+    <body>
+        <div class="main-body-container">
+            <h3 class="text-center">You selected
+                <%= course.course_name %>
+            </h3>
+            <h4 style="width: 100%; text-align: center">Course Info</h4>
+            <table class="table container" style="margin-top: 2vw">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Term Month Year</th>
+                        <th scope="col">Instructor Name</th>
+                        <th scope="col">Course Number</th>
+                        <th scope="col">Course Type</th>
+                    </tr>
+                </thead>
+                <tbody class="container">
+                    <tr>
+                        <td style="vertical-align: middle">
+                            <%= course.term_month_year %>
+                        </td>
+                        <td style="vertical-align: middle">
+                            <%= course.instructor_name %>
+                        </td>
+                        <td style="vertical-align: middle">
+                            <%= course.course_num %>
+                        </td>
+                        <td style="vertical-align: middle">
+                            <%= course.course_type %>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h4 style="width: 100%; text-align: center">Course - TA history</h4>
+            <table class="table container" style="margin-top: 2vw">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Course</th>
+                        <th scope="col">TA</th>
+                    </tr>
+                </thead>
+                <% for(let entity of registered) { %>
+                    <tbody class="container">
+                        <tr>
+                            <td style="vertical-align: middle">
+                                <%= entity.courseName %>
+                            </td>
+                            <td style="vertical-align: middle">
+                                <%= entity.TA_name %>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <% }%>
+            </table>
+        </div>
+    </body>
+
+</html>

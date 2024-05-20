@@ -1,0 +1,148 @@
+<html>
+    <% var successMsg; var errorMsg; %>
+    <%- include("../../partials/authenticated_navbar.ejs") %> 
+    <body>
+        <main role="main">
+			<section class="jumbotron text-center">
+				<div class="container">
+					<h1 class="jumbotron-heading">Sysop Tasks</h1>
+			</section>
+            <% if(successMsg) { %>
+                <div
+                    class="alert alert-success alert-dismissible fade show container"
+                    role="alert"
+                >
+                    <strong>Success!</strong><%= ` ${successMsg}` %>
+                    <button
+                        type="button"
+                        class="close"
+                        data-dismiss="alert"
+                        aria-label="Close"
+                    >
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <% } %>
+                <% if(errorMsg) { %>
+                    <div
+                        class="alert alert-danger alert-dismissible fade show container"
+                        role="alert"
+                    >
+                        <strong>Operation failed.</strong><%= ` ${errorMsg}` %>
+                        <button
+                            type="button"
+                            class="close"
+                            data-dismiss="alert"
+                            aria-label="Close"
+                        >
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <% } %>
+			<div class="album py-5 bg-light">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="card mb-4 shadow-sm">
+                                <a href="/sysop-tasks/import-courses">
+                                    <img
+									class="card-img-top"
+									data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+									alt="Thumbnail [100%x225]"
+									style="
+										height: 225px;
+										width: 100%;
+										display: block;
+										padding: 1.5vw;
+									"
+									src="../../images/file-earmark-plus.svg"
+									data-holder-rendered="true"
+								    />
+                                </a>
+								<div class="card-body">
+									<p class="card-text">
+                                        <a href="/sysop-tasks/import-courses" style="color:#212529">
+										Quick import courses with assigned instructors from a CSV file.
+                                        </a>
+                                    </p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card mb-4 shadow-sm">
+                                <a href="/sysop-tasks/add-user">
+                                    <img
+									class="card-img-top"
+									data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+									alt="Thumbnail [100%x225]"
+									src="../../images/person-plus-fill.svg"
+									data-holder-rendered="true"
+									style="
+										height: 225px;
+										width: 100%;
+										display: block;
+										padding: 1.5vw;
+									"
+								    />
+                                </a>
+								<div class="card-body">
+									<p class="card-text">
+                                        <a href="/sysop-tasks/add-user" style="color:#212529">Add a user and create an account for them.</a>
+									</p>
+								</div>
+							</div>
+						</div>
+                        <div class="col-md-4">
+							<div class="card mb-4 shadow-sm">
+                                <a href="/sysop-tasks/search-users">
+								<img
+									class="card-img-top"
+									data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+									alt="Thumbnail [100%x225]"
+									src="../../images/pencil-square.svg"
+									data-holder-rendered="true"
+									style="
+										height: 225px;
+										width: 100%;
+										display: block;
+										padding: 20px;
+									"
+								/>
+                            </a>
+								<div class="card-body">
+									<p class="card-text">
+										<a href="/sysop-tasks/search-users" style="color:#212529">Edit / delete user accounts.</a>
+									</p>
+								</div>
+							</div>
+						</div>			
+						<div class="col-md-4">
+							<div class="card mb-4 shadow-sm">
+                                <a href="/sysop-tasks/add-course">
+								<img
+									class="card-img-top"
+									data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+									alt="Thumbnail [100%x225]"
+									src="../../images/plus-circle-fill.svg"
+									data-holder-rendered="true"
+									style="
+										height: 225px;
+										width: 100%;
+										display: block;
+										padding: 20px;
+									"
+								/>
+                            </a>
+								<div class="card-body">
+									<p class="card-text">
+										<a href="/sysop-tasks/add-course" style="color:#212529">Manually add courses with assigned instructors.</a>
+									</p>
+								</div>
+							</div>
+						</div>						
+					</div>
+				</div>
+			</div>
+		</main>
+    </body>
+</html>

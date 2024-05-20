@@ -1,0 +1,81 @@
+<html>
+    <%- include('../../partials/authenticated_navbar.ejs') %>
+    <% var errors; %>
+    <body>
+        <div class="main-body-container">
+            <h3 class="text-center">Performance log</h3>
+            <p class="text-center">Select a TA and write about their performance</p>
+            <form
+                class= "container single-page-form-container border border-primary rounded"
+                action="/ta-management/add-performance"
+                method="POST">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="ta_names">Select a TA:</label>
+                        <select
+                            class="form-control"
+                            id="ta_names"
+                            placeholder="Some TA"
+                            name="taName">
+                            <% for(let TA of TAmatch) { %> 
+                            <% var fullName = TA.TAFName + " " + TA.TALName %>
+                            <option value= '<%=`${TA.TA_name}`%>' ><%= TA.TA_name %></option>
+                            <% } %>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+						<label for="performanceComment">Performance note</label>
+						<input
+							class="form-control"
+							id="performanceComment"
+							placeholder="Leave your note here"
+							name="someComment"
+						/>
+					</div>
+                </div>
+                <div style="display: none;">
+                    <input 
+                        class="form-control"
+                        id="courseName"
+                        value="<%= course %>"
+                        name="courseName"
+                    />
+                </div>
+                <div style="display: none;">
+                    <input 
+                        class="form-control"
+                        id="profUsername"
+                        value="<%= username %>"
+                        name="profUsername"
+                    />
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+                <% if(errors && errors[0]) { %>
+                    <div
+                        class="alert alert-danger alert-dismissible fade show"
+                        role="alert"
+                    >
+                        <strong>Invalid Registration: </strong><%= errors[0] %>. Please
+                        try again.
+                        <button
+                            type="button"
+                            class="close"
+                            data-dismiss="alert"
+                            aria-label="Close"
+                        >
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <% } %>
+            </form>
+        </div>
+    </body>
+</html>

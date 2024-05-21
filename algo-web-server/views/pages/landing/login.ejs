@@ -1,0 +1,76 @@
+<html>
+	<%- include('../../partials/unauthenticated_navbar.ejs') %>
+	<% var successRegisterMsg; var errors;%>
+	<body>
+		<div class="main-body-container">
+			<h3 class="text-center">Login to</h3>
+			<h3 class="text-center">TA-web-services</h3>
+			<form
+				class="container single-page-form-container border border-primary rounded"
+				action="/login"
+				method="POST"
+			>
+				<div class="form-group">
+					<label for="inputUsername3">Username</label>
+					<input
+						class="form-control"
+						id="inputUsername3"
+						placeholder="Username"
+						name="username"
+					/>
+				</div>
+				<div class="form-group">
+					<label for="inputCourses3">Password</label>
+					<input
+						type="password"
+						class="form-control"
+						id="inputPassword3"
+						placeholder="Password"
+						name="password"
+					/>
+				</div>
+				<div class="form-group row">
+					<div class="col-sm-10">
+						<button type="submit" class="btn btn-primary">
+							Login
+						</button>
+					</div>
+				</div>
+				<% if(errors && errors[0]) { %>
+				<div
+					class="alert alert-danger alert-dismissible fade show"
+					role="alert"
+				>
+					<strong>Login Failed: </strong><%=` ${errors[0]}. ` %>
+					Please try again.
+					<button
+						type="button"
+						class="close"
+						data-dismiss="alert"
+						aria-label="Close"
+					>
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<% } %>
+				<% if(successRegisterMsg) { %>
+					<div
+						class="alert alert-success alert-dismissible fade show"
+						role="alert"
+					>
+						<strong><%=`${successRegisterMsg}` %></strong>
+						Please login.
+						<button
+							type="button"
+							class="close"
+							data-dismiss="alert"
+							aria-label="Close"
+						>
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+				<% } %>
+			</form>
+		</div>
+	</body>
+</html>

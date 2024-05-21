@@ -1,0 +1,56 @@
+<!-- A script that ensures that the user types selected are coherent -->
+<script>
+    function uncheckProfAdminSysop() {
+        document.getElementById("gridCheck3").checked = false;
+        document.getElementById("gridCheck4").checked = false;
+        document.getElementById("gridCheck5").checked = false;
+    }
+    function uncheckStudentTA() {
+        document.getElementById("gridCheck1").checked = false;
+        document.getElementById("gridCheck2").checked = false;
+    }
+    // A student cannot be a prof, admin, or sysop
+    function clickStudent() {
+        // if you check student (not uncheck), uncheck prof, admin, and sysop
+        if (document.getElementById("gridCheck1").checked == true) {
+            uncheckProfAdminSysop();
+        }
+        // if you uncheck student, then you cannot be a TA
+        else {
+            document.getElementById("gridCheck2").checked = false;
+        }
+    }
+    // A TA is automatically also a student (and cannot be a professor (and admin 
+    // and sysop) based on edstem post #289)
+    function clickTa() {
+        if (document.getElementById("gridCheck2").checked == true) {
+            uncheckProfAdminSysop();
+            document.getElementById("gridCheck1").checked = true;
+        }
+    }
+    // A prof cannot be a student and ta
+    function clickProf() {
+        if (document.getElementById("gridCheck3").checked == true) {
+            uncheckStudentTA();
+        }
+        // Unchecking prof unchecking prof, admin and sysop (they must be profs)
+        else {
+            uncheckProfAdminSysop();
+        }
+    }
+    // An admin cannot be a student and ta and is always a prof
+    function clickAdmin() {
+        if (document.getElementById("gridCheck4").checked == true) {
+            document.getElementById("gridCheck3").checked = true;
+            uncheckStudentTA();
+        }
+    }
+    // A sysop cannot be a student and ta and is always a prof and admin
+    function clickSysop() {
+        if (document.getElementById("gridCheck5").checked == true) {
+            document.getElementById("gridCheck3").checked = true;
+            document.getElementById("gridCheck4").checked = true;
+            uncheckStudentTA();
+        }
+    }
+</script>

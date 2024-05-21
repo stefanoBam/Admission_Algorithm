@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+    <%- include('../../partials/authenticated_navbar.ejs') %>
+    <body>
+        <section class="jumbotron text-center">
+            <div class="container">
+                <h1 class="jumbotron-heading">View Course Info/History</h1>
+                <p>Please select the course you are looking for</p>
+        </section>
+
+        <div style="margin: 10%;">
+            <p>Please select the Course</p>
+            <form action="/ta-administration/courseInfo/result">
+
+
+                <select name="COURSE" id="COURSE">
+                <% for(let course of courses) { %>
+                    <option value="<%= course.course_num %>"><%= course.course_num %> </option>
+                <% } %>
+
+            </select>
+                <button type="submit" class="btn btn-outline-primary">select</button>
+            </form>
+        </div>
+
+    </body>
+
+</html>

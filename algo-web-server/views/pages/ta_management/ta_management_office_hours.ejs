@@ -1,0 +1,119 @@
+<html>
+    <%- include('../../partials/authenticated_navbar.ejs') %>
+    <% var errors; %>
+    <body>
+        <div class="main-body-container">
+            <h3 class="text-center">Define office hours, office locations, and duties.</h3>
+            <form 
+                class="container single-page-form-container border border-primary rounded"
+                action="/ta-management/add-office-hours-and-responsibilities"
+                name="OHform"
+                method="POST">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputFirstName">First name</label>
+                        <input
+                            class="form-control"
+                            id="inputFirstName"
+                            placeholder="First name (required)"
+                            name="firstName"
+                        />
+                    </div>
+                    <div class="form-group col-md-6">
+						<label for="inputLastName">Last name</label>
+						<input
+							class="form-control"
+							id="inputLastNameTAM"
+							placeholder="Last name (required)"
+							name="lastName"
+						/>
+					</div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+						<label for="inputEmailTAM">Email</label>
+						<input
+							type="email"
+							class="form-control"
+							id="inputEmailTAM"
+							placeholder="Email (required)"
+							name="email"
+						/>
+					</div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+						<label for="inputPositionTAM">Position</label>
+						<input
+							class="form-control"
+							id="inputPositionTAM"
+							placeholder="Position (required, e.g.: Prof, TA, CA, etc.)"
+							name="position"
+						/>
+					</div>
+                    <div class="form-group col-md-6">
+						<label for="inputDutiesTAM">Duties</label>
+						<input
+							class="form-control"
+							id="inputDutiesTAM"
+							placeholder="Position (required, e.g.: Lecture, Office hours, Tutorials, etc.)"
+							name="duties"
+						/>
+					</div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+						<label for="inputOHTimeTAM">Office Hours - Date and Time</label>
+						<input
+							class="form-control"
+							id="inputOHTimeTAM"
+							placeholder="Position (required, e.g.: Tues 14:00-15:00)"
+							name="office_hours"
+						/>
+					</div>
+                    <div class="form-group col-md-6">
+						<label for="inputOHLocationTAM">Office Hours - Location</label>
+						<input
+							class="form-control"
+							id="inputOHLocationTAM"
+							placeholder="Position (required, e.g.: ADAMS AUD)"
+							name="office_location"
+						/>
+					</div>
+                </div>
+                <div style="display: none;">
+                    <input 
+                        class="form-control"
+                        id="courseName"
+                        value="<%= course %>"
+                        name="courseName"
+                    />
+                </div>
+                <% if(errors && errors[0]) { %>
+                    <div
+                        class="alert alert-danger alert-dismissible fade show"
+                        role="alert"
+                    >
+                        <strong>Invalid: </strong><%= errors[0] %>. Please
+                        try again.
+                        <button
+                            type="button"
+                            class="close"
+                            data-dismiss="alert"
+                            aria-label="Close"
+                        >
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <% } %>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

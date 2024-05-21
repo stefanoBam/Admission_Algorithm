@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+  
+<html>
+    <%- include('../../partials/authenticated_navbar.ejs') %>
+    <body>
+        <section class="jumbotron text-center">
+            <div class="container">
+                <h1 class="jumbotron-heading">TA Administrator Area</h1>
+                <p>Hi Admin, what do you want to do today?</p>
+        </section>
+
+        <!-- <h1>TA Administrator Area</h1> -->
+        <!-- <p>Hi Admin, what do you want to do today?</p> -->
+        <!-- <a href="/ta-administration/import" name="foo" value="send">Import TA</a>
+        <a href="/ta-administration/taInfo"  name="foo" value="send">View TA Info/History</button>
+        <a href="/ta-administration/courseInfo"  name="foo" value="send">View Course TA History</button>
+        <a href="/ta-administration/edit"  name="foo" value="send">Add/Remove TA to Course</button> -->
+
+
+
+
+
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <a href="/ta-administration/import">
+                                <img
+                                class="card-img-top"
+                                data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                                alt="Thumbnail [100%x225]"
+                                style="
+                                    height: 225px;
+                                    width: 100%;
+                                    display: block;
+                                    padding: 1.5vw;
+                                "
+                                src="../../images/file-earmark-plus.svg"
+                                data-holder-rendered="true"
+                                />
+                            </a>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <a href="/ta-administration/import" style="color:#212529">
+                                        Import TA
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <a href="/ta-administration/import_courses">
+                                <img
+                                class="card-img-top"
+                                data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                                alt="Thumbnail [100%x225]"
+                                style="
+                                    height: 225px;
+                                    width: 100%;
+                                    display: block;
+                                    padding: 1.5vw;
+                                "
+                                src="../../images/file-earmark-plus.svg"
+                                data-holder-rendered="true"
+                                />
+                            </a>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <a href="/ta-administration/import_courses" style="color:#212529">
+                                        Import Courses
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!--  -->
+
+
+
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <a href="/ta-administration/taInfo">
+                                <img
+									class="card-img-top"
+									data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+									alt="Thumbnail [100%x225]"
+									style="
+										height: 225px;
+										width: 100%;
+										display: block;
+										padding: 1vw;
+									"
+									src="../../images/people-fill.svg"
+									data-holder-rendered="true"
+								/>
+                            </a>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <a href="/ta-administration/taInfo" style="color:#212529">View TA Info/History</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!--  -->
+
+
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <a href="/ta-administration/courseInfo">
+                            <img
+                                class="card-img-top"
+                                data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                                alt="Thumbnail [100%x225]"
+                                style="
+                                    height: 225px;
+                                    width: 100%;
+                                    display: block;
+                                    padding: 1vw;
+                                "
+                                src="../../images/people-fill.svg"
+                                data-holder-rendered="true"
+                            />
+                        </a>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <a href="/ta-administration/courseInfo" style="color:#212529">View Course TA History</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>			
+
+
+
+
+                    <!--  -->
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <a href="/ta-administration/edit">
+                            <img
+                                class="card-img-top"
+                                data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                                alt="Thumbnail [100%x225]"
+                                src="../../images/plus-circle-fill.svg"
+                                data-holder-rendered="true"
+                                style="
+                                    height: 225px;
+                                    width: 100%;
+                                    display: block;
+                                    padding: 20px;
+                                "
+                            />
+                        </a>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <a href="/ta-administration/edit" style="color:#212529">Manually Add/Remove TA to Course</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>						
+                </div>
+            </div>
+        </div>
+
+
+    </body>
+</html>

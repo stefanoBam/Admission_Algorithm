@@ -1,0 +1,5 @@
+{"firstName": "Joseph", "lastName":"Vybihal","email":"jv@email.com","position": "prof", "duties":"lectures/officehours", "office_hours": "T15:00-16:00/TH17:00-18:00", "office_location": "adamsAUD", "courseName": "COMP 307"}
+{"firstName": "John", "lastName":"Smith","email":"js@email.com","position": "TA", "duties":"officehours/tutorial", "office_hours": "T15:00-16:00/TH17:00-18:00", "office_location": "burnside-office:102", "courseName": "COMP 421"}
+{"firstName": "Jane", "lastName":"Doe","email":"jd@email.com","position": "TA", "duties":"officehours", "office_hours": "T15:00-16:00/TH17:00-18:00", "office_location": "zoom:link", "courseName": "COMP 421"}
+{"firstName": "Bob", "lastName":"Smith","email":"bob@email.com","position": "CA", "duties":"officehours", "office_hours": "T15:00-16:00/TH17:00-18:00", "office_location": "zoom:link", "courseName": "COMP 302"}
+{"firstName":"Anna","lastName":"Li","email":"apuff224477@yahoo.com","position":"TA","duties":"lectures","office_hours":"hi","office_location":"Burnside","courseName":"COMP 421"}

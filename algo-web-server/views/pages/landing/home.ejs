@@ -1,0 +1,117 @@
+<html>
+	<% var username; %> 
+	<!-- A username will be passed in if the a user is logged in and authenticated -->
+	<% if(username === undefined) { %> 
+		<%- include('../../partials/unauthenticated_navbar.ejs') %> 
+	<% } else { %>
+		<%- include('../../partials/authenticated_navbar.ejs') %> 
+	<% } %>
+	<body>
+		<main role="main">
+			<section class="jumbotron text-center">
+				<div class="container">
+					<h1 class="jumbotron-heading">
+						<%= username === undefined ? `Welcome to
+						TA-web-services!` : `Welcome to TA-web-services,
+						${username}!` %>
+					</h1>
+					<p class="lead text-muted">
+						A new all-in-one TA management system built for McGill
+						University. Manage, administer, and rate TAs, and so
+						much more! <%= username === undefined ? `Create your
+						account to use all features.` : `Navigate the navbar to
+						start working.` %>
+					</p>
+					<% if(username === undefined) { %>
+					<p>
+						<a href="/account/register" class="btn btn-primary my-2"
+							>Get started</a
+						>
+						<a href="/login" class="btn btn-secondary my-2"
+							>Login</a
+						>
+					</p>
+					<% } %>
+				</div>
+			</section>
+
+			<div class="album py-5 bg-light">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="card mb-4 shadow-sm">
+								<img
+									class="card-img-top"
+									data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+									alt="Thumbnail [100%x225]"
+									style="
+										height: 225px;
+										width: 100%;
+										display: block;
+										padding: 1vw;
+									"
+									src="../../images/people-fill.svg"
+									data-holder-rendered="true"
+								/>
+								<div class="card-body">
+									<p class="card-text">
+										Manage and administrate TAs, see TA
+										info, history, contact information, and
+										more.
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card mb-4 shadow-sm">
+								<img
+									class="card-img-top"
+									data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+									alt="Thumbnail [100%x225]"
+									src="../../images/person-plus-fill.svg"
+									data-holder-rendered="true"
+									style="
+										height: 225px;
+										width: 100%;
+										display: block;
+										padding: 1vw;
+									"
+								/>
+								<div class="card-body">
+									<p class="card-text">
+										Add, create, and manage accounts. Create
+										your account to explore all the
+										features!
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card mb-4 shadow-sm">
+								<img
+									class="card-img-top"
+									data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+									alt="Thumbnail [100%x225]"
+									src="../../images/star-half.svg"
+									data-holder-rendered="true"
+									style="
+										height: 225px;
+										width: 100%;
+										display: block;
+										padding: 20px;
+									"
+								/>
+								<div class="card-body">
+									<p class="card-text">
+										Rate a TA! See how a TA has performed in
+										their previous courses.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>

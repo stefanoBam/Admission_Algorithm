@@ -1,0 +1,25 @@
+<html>
+	<body>
+		<main role="main">
+			<section class="jumbotron text-center">
+				<div class="container">
+					
+					<p class="lead text-muted">
+						Welcome to our new Decision Tree Algorithm!
+					</p>
+                    <p>
+                        What is your patient's presenting problem (please choose below)
+                    </p>
+                    <p>
+                        <% for(let kw of keyword){ %>
+                            <button type="button"><%= kw.keyword %></button>
+                        <% } %>
+
+                    </p>
+
+                   
+				</div>
+			</section>
+		</main>
+	</body>
+</html>

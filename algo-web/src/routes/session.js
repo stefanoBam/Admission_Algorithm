@@ -14,28 +14,26 @@ const schema = Joi.object({
   password: Joi.string().required(),
 }).required();
 
+// read JSON file and passes it 
+const JSON_TABLE = "./src/models/list_of_keywords.json";
+async function readTable(){
+  const allKW = reader.fileAsyncIterator(JSON_TABLE)
+  const kwlist = [];
+  for await (const someWord of allKW){
+    try{
+      kwlist.push(someWord);
+    } catch (error){}
+  }
+  return kwlist;
+}
+
 // GET landing page
 router.get("/", (req, res) => {
-  if (req.session.authenticated) {
-    res.render("pages/landing/home", {
-      userTypes: req.session.user.userTypes,
-      username: req.session.user.username,
+  const kw = model.readTable();
+  res.render("pages/landing/home", {
+    keyword
     });
-  } else {
-    res.render("pages/landing/home");
-  }
-});
 
-// GET login page
-router.get("/login", (req, res) => {
-  if (req.session.authenticated) {
-    res.render("pages/landing/home", {
-      userTypes: req.session.user.userTypes,
-      username: req.session.user.username,
-    });
-  } else {
-    res.render("pages/landing/login", { errors: [] });
-  }
 });
 
 // POST / login to the website
@@ -55,44 +53,6 @@ router.post("/login", async (req, res) => {
     });
     return;
   }
-
-  // extract username and password from validated user
-  const { username, password } = value;
-  // check matching username and password
-  let authenticatedUser = await checkLoginCredentials(username, password);
-  if (authenticatedUser) {
-    req.session.authenticated = true;
-    req.session.user = {
-      userTypes: authenticatedUser.userTypes,
-      username: authenticatedUser.username,
-    };
-    res.render("pages/landing/home", {
-      userTypes: req.session.user.userTypes,
-      username: req.session.user.username,
-    });
-  } else {
-    res.status(400).render("pages/landing/login", {
-      response: response_type.AUTH,
-      errors: ["Unable to authenticate user"],
-    });
-  }
 });
-
-// POST / logout
-router.post(
-  "/logout",
-  checkAuthentication((req, res) => {
-    req.session.destroy((err) => {
-      if (err) {
-        res.json({
-          errors: [err.message],
-          response: response_type.AUTH,
-        });
-      } else {
-        res.render("pages/landing/home");
-      }
-    });
-  })
-);
 
 module.exports = router;

@@ -1,18 +1,10 @@
 const Joi = require("joi");
 const express = require("express");
 const router = express.Router();
-const { checkLoginCredentials } = require.main.require(
-  "./src/services/session"
-);
-const { checkAuthentication } = require.main.require(
-  "./src/utils/authentication"
-);
+const reader = require.main.require("./src/utils/reader");
+
 const { response_type } = require.main.require("./src/response");
 
-const schema = Joi.object({
-  username: Joi.string().required(),
-  password: Joi.string().required(),
-}).required();
 
 // read JSON file and passes it 
 const JSON_TABLE = "./src/models/list_of_keywords.json";
@@ -28,8 +20,11 @@ async function readTable(){
 }
 
 // GET landing page
-router.get("/", (req, res) => {
-  const kw = model.readTable();
+router.get("/", async (req, res) => {
+  const keyword = await readTable();
+  console.log(keyword)
+  console.log(typeof keyword)
+  console.log("HELLLLOOOOOOOOO")
   res.render("pages/landing/home", {
     keyword
     });
@@ -38,15 +33,10 @@ router.get("/", (req, res) => {
 
 // POST / login to the website
 router.post("/login", async (req, res) => {
-  if (req.session.authenticated) {
     res.render("pages/landing/home", {
-      userTypes: req.session.user.userTypes,
-      username: req.session.user.username,
     });
     return;
-  }
-
-  let { error, value } = schema.validate(req.body);
+  
   if (error) {
     res.status(400).render("pages/landing/login", {
       errors: error.details.map((detail) => detail.message),

@@ -7,13 +7,14 @@ const { response_type } = require.main.require("./src/response");
 
 
 // read JSON file and passes it 
-const JSON_TABLE = "./src/models/list_of_keywords.json";
-async function readTable(){
-  const allKW = reader.fileAsyncIterator(JSON_TABLE)
+const INITIAL_TABLE = "./src/models/list_of_keywords.json";
+const RESULT_TABLE ="./src/models/list_of_resultingkw.json";
+async function readTable(someTABLE){
+  const allKW = reader.fileAsyncIterator(someTABLE)
   const kwlist = [];
   for await (const someWord of allKW){
     try{
-      kwlist.push(someWord);
+      kwlist.push(JSON.parse(someWord));
     } catch (error){}
   }
   return kwlist;
@@ -21,12 +22,14 @@ async function readTable(){
 
 // GET landing page
 router.get("/", async (req, res) => {
-  const keyword = await readTable();
+  const keyword = await readTable(INITIAL_TABLE);
+  const resultingKW = await readTable(RESULT_TABLE);
   console.log(keyword)
   console.log(typeof keyword)
   console.log("HELLLLOOOOOOOOO")
   res.render("pages/landing/home", {
-    keyword
+    keyword,
+    resultingKW
     });
 
 });

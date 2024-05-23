@@ -1,4 +1,15 @@
+<!DOCTYPE html>
 <html>
+	<head>
+		<style>
+			.invisibleClass {
+				display: none;
+			}
+			.coolClass{
+				color: blue;
+			}
+		</style>
+	</head>
 	<body>
 		<main role="main">
 			<section class="jumbotron text-center">
@@ -10,17 +21,48 @@
                     <p>
                         What is your patient's presenting problem (please choose below)
                     </p>
-                    
+                </div>
+				<div id="initial">
                     <p>
                         <% for(let kw of keyword){ %>
-                            <button type="button"><%= kw %></button>
+                            <button onclick="myFunction()"><%= kw.keyword %></button>
                         <% } %>
 
                     </p>
-        
-                   
 				</div>
+				<div id="result" class="invisibleClass">
+                    <p>
+                        <% for(let rkw of resultingKW){ %>
+                            <button onclick="myFunction2()"><%= rkw.keyword %></button>
+                        <% } %>
+
+                    </p>
+				</div>
+				<div id="final" class="invisibleClass">
+					<p>
+						The admitting service should be: GI !! :)
+					</p>
+				</div>
+				
+
+				<script>
+				function renderResult(){
+				document.getElementById("changeableDIV").style.display = none
+				console.log("CURRENTLY CALLED RENDERRESULT FUNCTION")
+				}
+				function myFunction(){
+					document.getElementById('initial').classList.add('invisibleClass');
+					document.getElementById('result').classList.remove('invisibleClass')
+					
+				}
+				function myFunction2(){
+					document.getElementById('result').classList.add('invisibleClass');
+					document.getElementById('final').classList.remove('invisibleClass')
+					
+				}
+				</script>
 			</section>
 		</main>
+	
 	</body>
 </html>

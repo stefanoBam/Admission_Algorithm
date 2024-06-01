@@ -1,14 +1,21 @@
-{"system":"respiratory",
-"system":"HEENT",
-"system":"cardiovascular",
-"system":"gastrointestinal",
-"system":"genitourinary",
-"system":"neurological",
-"system":"psychiatric",
-"system":"skin",
-"system":"MSK",
-"mechanism":"vascular",
-"mechanism":"infectious",
-"mechanism":"neoplastic",
-"mechanism":"iatrogenic/intoxication",
-"mechanism":"traumatic"}
+{"system":
+    [
+        "respiratory",
+        "HEENT",
+        "cardiovascular",
+        "gastrointestinal",
+        "genitourinary",
+        "neurological",
+        "psychiatric",
+        "skin",
+        "MSK"
+    ],
+"mechanism":
+    [
+        "vascular",
+        "infectious",
+        "neoplastic",
+        "iatrogenic/intoxication",
+        "traumatic"
+    ]
+}

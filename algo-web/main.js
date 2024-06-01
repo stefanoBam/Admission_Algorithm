@@ -11,6 +11,7 @@ const app = express();
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/views"));
+//app.use(express.static('public'));
 app.use(morgan("tiny"));
 app.use(express.json());
 app.use(
@@ -28,6 +29,6 @@ app.use("/", require("./src/routes/session"));
 app.listen(port, () => {
   logger.info({
     ctx: "server.core",
-    info: `ta-management server listening on port ${port}`,
+    info: `algo-web server listening on port ${port}`,
   });
 });

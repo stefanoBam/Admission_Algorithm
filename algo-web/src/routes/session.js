@@ -9,6 +9,7 @@ const { response_type } = require.main.require("./src/response");
 // read JSON file and passes it 
 const INITIAL_TABLE = "./src/models/list_of_keywords.json";
 const RESULT_TABLE ="./src/models/list_of_resultingkw.json";
+const MECHANISM_TABLE = "./src/models/list_of_mechanisms.json";
 async function readTable(someTABLE){
   const allKW = reader.fileAsyncIterator(someTABLE)
   const kwlist = [];
@@ -24,12 +25,14 @@ async function readTable(someTABLE){
 router.get("/", async (req, res) => {
   const keyword = await readTable(INITIAL_TABLE);
   const resultingKW = await readTable(RESULT_TABLE);
-  console.log(keyword)
-  console.log(typeof keyword)
-  console.log("HELLLLOOOOOOOOO")
+  const mechanismKW = await readTable(MECHANISM_TABLE);
+  //console.log(keyword)
+  //console.log(typeof keyword)
+  //console.log("HELLLLOOOOOOOOO")
   res.render("pages/landing/home", {
     keyword,
-    resultingKW
+    resultingKW,
+    mechanismKW
     });
 
 });

@@ -1,0 +1,21 @@
+{"system":
+    [
+        "respiratory",
+        "HEENT",
+        "cardiovascular",
+        "gastrointestinal",
+        "genitourinary",
+        "neurological",
+        "psychiatric",
+        "skin",
+        "MSK"
+    ],
+"mechanism":
+    [
+        "vascular",
+        "infectious",
+        "neoplastic",
+        "iatrogenic/intoxication",
+        "traumatic"
+    ]
+}

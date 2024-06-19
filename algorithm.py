@@ -2,7 +2,7 @@ import csv
 import pandas as pd
 import numpy as np 
 
-df_0 = pd.read_csv('Admit_table_csv.csv')
+df_0 = pd.read_csv('Admit_table_wCat.csv')
 df = pd.DataFrame(df_0)
 #print(df.to_string())
 

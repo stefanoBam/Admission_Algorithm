@@ -1,26 +1,85 @@
+<!DOCTYPE html>
 <html>
+	<head>
+		<style>
+			.invisibleClass {
+				display: none;
+			}
+			.coolClass{
+				color: blue;
+			}
+			* {
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+	</head>
 	<body>
-		<main role="main">
-			<section class="jumbotron text-center">
-				<div class="container">
+		<!--<main role="main">
+			<section class="jumbotron text-center"> -->
+				<div class="container" style="background-color: #6fc99e ;text-align:center; padding:2em">
 					
-					<p class="lead text-muted">
+					<p class="lead text-muted" style="color:black; font-size: 20px">
 						Welcome to our new Decision Tree Algorithm!
 					</p>
-                    <p>
-                        What is your patient's presenting problem (please choose below)
-                    </p>
-                    
-                    <p>
-                        <% for(let kw of keyword){ %>
-                            <button type="button"><%= kw %></button>
-                        <% } %>
+                </div>
 
+				<div style="background-color: #d2e4e6;">
+					<p style="color:#748dc6ee; text-align: center; padding:1em">
+                        What is your patient's presenting problem? (Please choose below)
                     </p>
-        
-                   
 				</div>
-			</section>
-		</main>
+
+				<div id="initial" style="padding:10px">
+                    <p style="width:45%; float:left; height:100px; color: #5e8f5e">
+						Please select from the following <font color="#154b15"><strong>systems:</strong></font> <br> <br>
+                        <% for(let kw of keyword){ %>
+                            <button onclick="myFunction()" style="border:none; border-radius: 15px; margin:5px; padding: 7px; background-color: rgb(215, 238, 250); color: #3e3e77;"><%= kw.keyword %></button>
+                        <% } %>
+						<img src="../../images/study-guide-body-systems.svg"/>
+                    </p>
+					<p style="margin-left:55%; height:100px; color: #154b15">
+						Please select from the following <font color="#154b15"><strong>mechanisms:</strong></font> <br> <br>
+						<% for(let kw of mechanismKW){ %>
+                            <button onclick="myFunction()" style="border:none; border-radius: 15px; margin:5px; padding: 7px; background-color: rgb(215, 238, 250); color: #3e3e77;"><%= kw.keyword %></button>
+                        <% } %>
+					</p>
+				</div>
+
+				<div id="result" class="invisibleClass">
+                    <p style="padding:1em; color:#5e8f5e">
+						Please further select from the following choices: <br> <br>
+                        <% for(let rkw of resultingKW){ %>
+                            <button onclick="myFunction2()" style="border:none; border-radius: 15px; margin:5px; padding: 7px; background-color: rgb(215, 238, 250); color: #3e3e77;""><%= rkw.keyword %></button>
+                        <% } %>
+                    </p>
+				</div>
+
+				<div id="final" class="invisibleClass">
+					<p style="padding:1em">
+						The admitting service should be: <font color="#98c398"><strong>GI</strong></font>
+					</p>
+				</div>
+				
+
+				<script>
+				function renderResult(){
+				document.getElementById("changeableDIV").style.display = none
+				console.log("CURRENTLY CALLED RENDERRESULT FUNCTION")
+				}
+				function myFunction(){
+					document.getElementById('initial').classList.add('invisibleClass');
+					document.getElementById('result').classList.remove('invisibleClass')
+					
+				}
+				function myFunction2(){
+					document.getElementById('result').classList.add('invisibleClass');
+					document.getElementById('final').classList.remove('invisibleClass')
+					
+				}
+				</script>
+			<!--</section>
+		</main> -->
+	
 	</body>
 </html>

@@ -1,0 +1,272 @@
+﻿Diagnosis/Presenting problem,Specific Factors 1,Specific Factors 2,Admitting Service,Notes,System,Mechanism
+Acute Dermatological Illness Requiring Admission,,,SSU (72 hrs.) ,,skin,
+Acute Dermatological Illness Requiring Admission,,,Internal Medicine,,skin,
+Aortic Dissection,,Involving ascending aorta and arch (” Type A”),Cardiac Surgery ,,cardiovascular,"vascular, trauma"
+Aortic Dissection,,Distal to left subclavian artery (“Type B”),Vascular Surgery ,,cardiovascular,"vascular, trauma"
+Biliary Disease,"Benign biliary, non-cancer related:",Choledocholithiasis without cholecystitis or cholangitis requiring admission.,SSU less than 72 hours,,gastrointestinal,
+Biliary Disease,"Benign biliary, non-cancer related:",Choledocholithiasis without cholecystitis or cholangitis requiring admission.,ACS more than 72 hours,,gastrointestinal,
+Biliary Disease,"Benign biliary, non-cancer related:","Cholecystitis, Crescendo biliary colic, Cholangitis (including stents and external drainage managed by ACS)",ACS,,gastrointestinal,
+Biliary Disease,"Benign biliary, non-cancer related:",Biliary obstruction needing MRCP,SSU with consult to ACS ,,gastrointestinal,
+Biliary Disease,Malignant biliary:,"New diagnosis or suspicion AND potentially resectable; Complication of surgery; surgical complication of procedure (perforation; obstruction; bleeding; pancreatitis)- ,",Hepatobiliary Surgery (RVH),,gastrointestinal,neoplastic
+Biliary Disease,Malignant biliary:,Known cases documented by surgery as clearly not resectable and not related to complications listed above,Follow Oncology algorithm,,gastrointestinal,neoplastic
+Back pain / radiculopathy,,Without neurological symptoms,Internal medicine (GOLD),,"MSK, neurological",
+Back pain / radiculopathy,,Without neurological symptoms,SSU if less than 72h expected,,"MSK, neurological",
+"Bowel Obstruction, small",,"Abdominal or pelvic surgery by subspeciality service within 3 months, ongoing active cancer care or active surveillance by subspeciality service","Subspecialty service (e.g., Gyne-Oncology, colorectal, urology, hepatobiliary)",,gastrointestinal,"iatrogenic/intoxication, neoplastic"
+"Bowel Obstruction, small",,Malignant bowel obstruction IF DEEMED NON-OPERATIVE BY SURGERY and no further chemo planned,Palliative care,,gastrointestinal,neoplastic
+"Bowel Obstruction, small",,All others,ACS (consult),,gastrointestinal,
+"Bowel Obstruction, small",,(*for IBD cases go to: Crohn’s),,,gastrointestinal,
+"Bowel Obstruction, small",,Non-operative and resolving,SSU less than 72h,,gastrointestinal,
+"Bowel Obstruction, small",,Non-operative and resolving,ACS more than 72h,,gastrointestinal,
+"Bowel Obstruction, large",,Mechanical ,ACS,,gastrointestinal,
+"Bowel Obstruction, large",,Pseudo-obstruction (Ogilvie’s),Medicine,,gastrointestinal,
+"Bowel Obstruction, large",,Malignant bowel obstruction IF DEEMED NON-OPERATIVE BY SURGERY and no further chemo planned,Palliative care,,gastrointestinal,neoplastic
+Cellulitis,,Facial,OMF ,,"skin, HEENT",infectious
+Cellulitis,,Facial,SSU,,"skin, HEENT",infectious
+Cellulitis,,Oropharyngeal/laryngeal,ENT,,"skin, HEENT",infectious
+Cellulitis,IF associated with abscess that requires drainage (even if drainage done in ED),Perianal,ACS ,"Note: for concern of severe soft tissue infection, see necrotizing fasciitis section","skin, gastrointestinal",infectious
+Cellulitis,IF associated with abscess that requires drainage (even if drainage done in ED),Scrotal,Urology ,"Note: for concern of severe soft tissue infection, see necrotizing fasciitis section","skin, genitourinary ",infectious
+Cellulitis,IF associated with abscess that requires drainage (even if drainage done in ED),Vulvar,Gyne ,"Note: for concern of severe soft tissue infection, see necrotizing fasciitis section","skin, genitourinary ",infectious
+Cellulitis,IF associated with abscess that requires drainage (even if drainage done in ED),Hand,Plastics ,"Note: for concern of severe soft tissue infection, see necrotizing fasciitis section",skin,infectious
+Cellulitis,IF associated with abscess that requires drainage (even if drainage done in ED),extremities (also see also diabetic foot ulcers) ,Internal Medicine (GOLD),"Note: for concern of severe soft tissue infection, see necrotizing fasciitis section",skin,infectious
+Cellulitis,IF associated with abscess that requires drainage (even if drainage done in ED),extremities (also see also diabetic foot ulcers) ,SSU less than 72h,"Note: for concern of severe soft tissue infection, see necrotizing fasciitis section",skin,infectious
+Cellulitis,IF associated with abscess that requires drainage (even if drainage done in ED),Others ,Internal med over 72h,"Note: for concern of severe soft tissue infection, see necrotizing fasciitis section",skin,infectious
+Cellulitis,IF associated with abscess that requires drainage (even if drainage done in ED),Others ,Best service according to presentation ,"Note: for concern of severe soft tissue infection, see necrotizing fasciitis section",skin,infectious
+Chest Pain of Cardiac Origin,,Acute coronary syndrome or pericardial effusion pre-tamponade,Cardiology,(also see under pericarditis),cardiovascular,
+Chest Pain of Cardiac Origin,,Post- cardiac Surgery:  within one month of discharge,Cardiac surgery,(also see under pericarditis),cardiovascular,
+Compartment syndrome (or /suspicion of) ,,Most ,Ortho (all lower ext. and upper extremity with fracture),,MSK,
+Compartment syndrome (or /suspicion of) ,,Most ,Plastics (upper ext. without fracture) ,,MSK,
+Compartment syndrome (or /suspicion of) ,,Abdominal,Trauma (if trauma mechanism),,MSK,traumatic
+Compartment syndrome (or /suspicion of) ,,Abdominal,ACS (others),,MSK,
+Compartment syndrome (or /suspicion of) ,,Hand,Plastic,,MSK,
+Congestive Heart Failure,,"Ongoing chest pain, ACS, caused by ongoing arrhythmia.",Cardiology,,cardiovascular,
+Congestive Heart Failure,,Intubated,"CCU, ICU – bed availability",,cardiovascular,
+Congestive Heart Failure,,Patient of Heart Failure Clinic (<65 and/or pre-transplant) or MAUDE,Cardiology,,cardiovascular,
+Congestive Heart Failure,,VAD – mechanical cardiac assist device,"ICU, Cardiac Surgery"," ED to follow policy algorithm for VAD patient disposition (policy available in ED, target Ito transfer patient to ICU or D7 within 30 mins of arrival for all patients irrespective of diagnosis ",cardiovascular,
+Congestive Heart Failure,,All others,SSU moins de 72h,,cardiovascular,
+Congestive Heart Failure,,All others,Internal Medicine plus de 72h,,cardiovascular,
+COPD/Asthma,,"Acute, requiring assisted ventilation, intubated.","ICU, Respiratory ICU if known to MCI",,respiratory,
+COPD/Asthma,,"Significant active co-morbid disease (e.g., DKA, AKI)",Internal Medicine,,respiratory,
+COPD/Asthma,,All others,SSU if less than 72 hrs ,,respiratory,
+COPD/Asthma,,All others,"Respiratory Medicine, ",,respiratory,
+COPD/Asthma,,All others,"Internal Medicine (MGH only),",,respiratory,
+Dialysis Patient,,Surgical access problem (non-infected),Fistula: Vascular ,,genitourinary,vascular
+Dialysis Patient,,Line infection without sepsis/shock,Internal Medicine,,genitourinary,infectious
+Dialysis Patient,,CAPD peritonitis,Internal Medicine,,"genitourinary, gastrointestinal",
+Diabetic foot ulcers ,,(consult ID for OPAT),SSU if OPAT delays ,,"skin, MSK",
+Diabetic foot ulcers ,,Vascular patients followed at MUHC who require OR debridement,Vascular,,"skin, MSK",
+Diabetic foot ulcers ,,Other indications for admission,Medicine ,,"skin, MSK",
+Discharge failure,,"Excluding acute critical illness requiring immediate alternative subspecialty management (e.g., MI, stroke, surgical intervention)",Discharge service,"*Returns in less than 28 days 
+**Rehab transfers for acute issues are not limited to 28 days. Rehab FAILURES should not be sent to ED by rehab, they are re-admitted to D/C service directly from rehab.",,
+Diverticulitis,,Requiring surgery or complicated,ACS,,gastrointestinal,"traumatic, infectious"
+Diverticulitis,,Uncomplicated,SSU less than 72h,,gastrointestinal,"traumatic, infectious"
+Diverticulitis,,Uncomplicated,ACS more than 72 h,,gastrointestinal,"traumatic, infectious"
+Eating Disorders,,,Psychiatry,,psychiatry,
+Eating Disorders,,Serious Metabolic imbalance requiring intravenous treatment,Internal Medicine,,psychiatry,
+"Empyema, pleural infection, pneumothorax, hemothorax",,"Post recent (30 day) thoracic surgery pleural space infection, esophageal perforation, empyema failing, fibrolytic therapy requiring surgical decortication, primary pneumothorax and non-trauma associated secondary pneumothorax in patients with normal lung function",Thoracic (MGH),,respiratory,
+"Empyema, pleural infection, pneumothorax, hemothorax",,Blunt or penetrating trauma associated. Pneumothorax or hemothorax,Trauma,,respiratory,traumatic
+"Empyema, pleural infection, pneumothorax, hemothorax",,Newly diagnosed complicated   parapneumonic effusion and empyema with no prior fibrinolytic therapy. Secondary pneumothorax due to severe pulmonary disease (COPD/pulmonary fibrosis).,Respiratory,,respiratory,
+"Empyema, pleural infection, pneumothorax, hemothorax",,"Other cases, not needing ICU.",Respiratory,,respiratory,
+Endocarditis,,Congenital Heart Disease,Cardiology,,cardiovascular,
+Endocarditis,,Requiring OR,Cardiac Surgery,,cardiovascular,
+Endocarditis,,All others,Internal Medicine,,cardiovascular,
+Ethanol Withdrawal/drug Intoxication,,Stable but requiring admission: stable defined as requiring less than 120 mg diazepam / 24 hrs. (or equivalent) ,SSU when stable,,,iatrogenic/intoxication
+Ethanol Withdrawal/drug Intoxication,,Stable but requiring admission: stable defined as requiring less than 120 mg diazepam / 24 hrs. (or equivalent) ,SSU less than 72h,,,iatrogenic/intoxication
+Ethanol Withdrawal/drug Intoxication,,Stable but requiring admission: stable defined as requiring less than 120 mg diazepam / 24 hrs. (or equivalent) ,Int med more than 72h,,,iatrogenic/intoxication
+Ethanol Withdrawal/drug Intoxication,,Stable but requiring admission: stable defined as requiring less than 120 mg diazepam / 24 hrs. (or equivalent) ,ICU: if dose of BDZ higher or needs second line tx.,,,iatrogenic/intoxication
+Ethanol Withdrawal/drug Intoxication,,Stable but requiring admission: stable defined as requiring less than 120 mg diazepam / 24 hrs. (or equivalent) ,Int Med: if co-morbidities that require admission irrespective of withdrawal. ,,,iatrogenic/intoxication
+Ethanol Withdrawal/drug Intoxication,,Acetaminophen overdose without liver toxicity requiring NAC,SSU,,,iatrogenic/intoxication
+Ethanol Withdrawal/drug Intoxication,,Acetaminophen overdose without liver toxicity requiring NAC,Transfer to psychiatry for pts in our sector after 72h,,,iatrogenic/intoxication
+Ethanol Withdrawal/drug Intoxication,,Acetaminophen overdose without liver toxicity requiring NAC,BIU if out of sector and only require NAC ,,,iatrogenic/intoxication
+Falls (or inability to ambulate),,"With operative injury, trauma, fracture/MSK injuries","Follow Fractures/MSK, Spine, and Trauma algorithms",,MSK,traumatic
+Falls (or inability to ambulate),,All others,SSU less than 72 hours,,,traumatic
+Falls (or inability to ambulate),,All others,"Other: decision to be influenced by underlying issues e.g. infection, significant metabolic disturbance, dementia, acute neurological events",,,traumatic
+Fracture/MSK injuries,"Operative, intervention required: ",Facial,Plastics or OMF according to call schedule,*Associated injuries - see Trauma,"MSK, HEENT",traumatic
+Fracture/MSK injuries,"Operative, intervention required: ",Hand,Plastics,*Associated injuries - see Trauma,MSK,traumatic
+Fracture/MSK injuries,"Operative, intervention required: ",Spine,See Spine,*Associated injuries - see Trauma,"MSK, neurological",traumatic
+Fracture/MSK injuries,,All others,  Ortho   ,*Associated injuries - see Trauma,MSK,traumatic
+Fracture/MSK injuries,,All others,SSU (priority for NSA transfer) ,*Associated injuries - see Trauma,MSK,traumatic
+Fracture/MSK injuries,,All others,Other service as per algorithm if acute medical problem requiring admission ,*Associated injuries - see Trauma,MSK,traumatic
+Functional decline in the elderly without acute medical problem ,,,Refer to non-medical admission algorithm before requesting admit to any service,,,
+Functional decline in the elderly without acute medical problem ,,,Non-teaching bed (GOLD or JADE ),,,
+Gastroenteritis and Infectious Colitis,,,SSU moins de 72h,,gastrointestinal,infectious
+Gastroenteritis and Infectious Colitis,,,Internal Medicine plus de 72h,,gastrointestinal,infectious
+GI Bleed,,"Lower and Upper GI bleed with no evidence of further blood loss, stable CBC (Hb drop less than approx. 1g/6hrs ), hemodynamically stable, requiring admission for endoscopy investigation. Note: anticoagulation is not an exclusion criteria ",SSU less than 72h,GI will adjudicate in cases of disagreement as to admitting service ,gastrointestinal,"vascular, traumatic"
+GI Bleed,Other: ,Upper GI bleed (prox. Lig.. of treitz) ,GIM (with GI consult),GI will adjudicate in cases of disagreement as to admitting service ,gastrointestinal,"vascular, traumatic"
+GI Bleed,Other: ,Lower GI bleed (distal to lig. of treitz)  ,ACS,GI will adjudicate in cases of disagreement as to admitting service ,gastrointestinal,"vascular, traumatic"
+Inflammatory Bowel Disease,,Majority of cases (exacerbation of known disease),Internal Medicine (MGH),,gastrointestinal,
+Inflammatory Bowel Disease,,Majority of cases (exacerbation of known disease),SSU,,gastrointestinal,
+Inflammatory Bowel Disease,,"Indication for surgical intervention, bowel obstruction, perforation, abscess (greater than 4 cm), significant lower GI bleed",ACS,,gastrointestinal,
+Intracranial Bleed,,"Traumatic, isolated",Neurosurgery (MGH only),,neurological,"vascular, traumatic"
+Intracranial Bleed,,Atraumatic ,Neurology,,neurological,vascular
+Intracranial Bleed,,Atraumatic ,Neurosurgery (MNI),,neurological,vascular
+Ischemic Colitis,,All cases requiring admission,ACS,,gastrointestinal,vascular
+Ischemic Limb,,"Ischemic leg and either infection, pain, or gangrene, and no pulses",Vascular Surgery,,MSK,vascular
+Kidney Biopsy,,Usually do not require admission should recover in Day Hospital,SSU,,genitourinary,iatrogenic/intoxication
+Liver Abscess ,,Pyogenic (New diagnosis),ACS,,gastrointestinal,infectious
+Liver Abscess ,,"Postoperative complication or complication of surgical disease (e.g. biliary, diverticular, appendix etc.)",Appropriate surgical service according to underlying disease,,gastrointestinal,"iatrogenic/intoxication, infectious"
+"Liver failure (eg hepatitis, cirrhosis, liver related ascites)",,"Medical (immune, viral, etc. …) without surgical indication",Internal Medicine (favor RVH for access to Hepatology),,gastrointestinal,
+"Liver failure (eg hepatitis, cirrhosis, liver related ascites)",,"Drainage (stent, obstruction) related, graft dysfunction, cancer related","Follow biliary, transplant, and oncology algorithms",,gastrointestinal,"iatrogenic/intoxication, neoplastic"
+Mechanical Heart,,"All mechanical hearts, regardless of potential diagnosis",Cardiac surgery or ICU (RVH only) *Cardiac Surgery will define,"*MUST page perfusionist immediately upon arrival or call to ED prior to arrival, Cardiac Surgery to be consulted immediately on arrival to the ED. Patients must not remain in ED, admission to either Cardiac Surgery or ICU",cardiovascular,
+Necrotizing Fasciitis,"ACS coordinates care when other services are not on site (e.g. ortho at RVH, urology/gyne at MGH)",Admission to follow surgical care provided and patient need for repeat debridement.,Torso ,"** ACS IS CONSULTED SERVICE IN ALL CASES WHEN NECROTIZING FASCIITIS IS SUSPECTED based on clinical findings: pain, skin findings, fever and LRINEC >5
+
+***STAT transfers between EDs are to be facilitated by ED personnel: ambulance booking, notifying ED at alternate site***","skin, MSK",infectious
+Necrotizing Fasciitis,"ACS coordinates care when other services are not on site (e.g. ortho at RVH, urology/gyne at MGH)",Admission to follow surgical care provided and patient need for repeat debridement.,ACS (MGH/RVH),"** ACS IS CONSULTED SERVICE IN ALL CASES WHEN NECROTIZING FASCIITIS IS SUSPECTED based on clinical findings: pain, skin findings, fever and LRINEC >5
+
+***STAT transfers between EDs are to be facilitated by ED personnel: ambulance booking, notifying ED at alternate site***","skin, MSK",infectious
+Necrotizing Fasciitis,"ACS coordinates care when other services are not on site (e.g. ortho at RVH, urology/gyne at MGH)",Admission to follow surgical care provided and patient need for repeat debridement.,Neck,"** ACS IS CONSULTED SERVICE IN ALL CASES WHEN NECROTIZING FASCIITIS IS SUSPECTED based on clinical findings: pain, skin findings, fever and LRINEC >5
+
+***STAT transfers between EDs are to be facilitated by ED personnel: ambulance booking, notifying ED at alternate site***","skin, MSK, HEENT",infectious
+Necrotizing Fasciitis,"ACS coordinates care when other services are not on site (e.g. ortho at RVH, urology/gyne at MGH)",Admission to follow surgical care provided and patient need for repeat debridement.,ENT (RVH/MGH),"** ACS IS CONSULTED SERVICE IN ALL CASES WHEN NECROTIZING FASCIITIS IS SUSPECTED based on clinical findings: pain, skin findings, fever and LRINEC >5
+
+***STAT transfers between EDs are to be facilitated by ED personnel: ambulance booking, notifying ED at alternate site***","skin, MSK, HEENT",infectious
+Necrotizing Fasciitis,"ACS coordinates care when other services are not on site (e.g. ortho at RVH, urology/gyne at MGH)",Admission to follow surgical care provided and patient need for repeat debridement.,Face,"** ACS IS CONSULTED SERVICE IN ALL CASES WHEN NECROTIZING FASCIITIS IS SUSPECTED based on clinical findings: pain, skin findings, fever and LRINEC >5
+
+***STAT transfers between EDs are to be facilitated by ED personnel: ambulance booking, notifying ED at alternate site***","skin, MSK, HEENT",infectious
+Necrotizing Fasciitis,"ACS coordinates care when other services are not on site (e.g. ortho at RVH, urology/gyne at MGH)",Admission to follow surgical care provided and patient need for repeat debridement.,Plastics/OMF (MGH/RVH),"** ACS IS CONSULTED SERVICE IN ALL CASES WHEN NECROTIZING FASCIITIS IS SUSPECTED based on clinical findings: pain, skin findings, fever and LRINEC >5
+
+***STAT transfers between EDs are to be facilitated by ED personnel: ambulance booking, notifying ED at alternate site***","skin, MSK, HEENT",infectious
+Necrotizing Fasciitis,"ACS coordinates care when other services are not on site (e.g. ortho at RVH, urology/gyne at MGH)",Admission to follow surgical care provided and patient need for repeat debridement.,Upper Limb,"** ACS IS CONSULTED SERVICE IN ALL CASES WHEN NECROTIZING FASCIITIS IS SUSPECTED based on clinical findings: pain, skin findings, fever and LRINEC >5
+
+***STAT transfers between EDs are to be facilitated by ED personnel: ambulance booking, notifying ED at alternate site***","skin, MSK",infectious
+Necrotizing Fasciitis,"ACS coordinates care when other services are not on site (e.g. ortho at RVH, urology/gyne at MGH)",Admission to follow surgical care provided and patient need for repeat debridement.,Plastics (MGH/RVH),"** ACS IS CONSULTED SERVICE IN ALL CASES WHEN NECROTIZING FASCIITIS IS SUSPECTED based on clinical findings: pain, skin findings, fever and LRINEC >5
+
+***STAT transfers between EDs are to be facilitated by ED personnel: ambulance booking, notifying ED at alternate site***","skin, MSK",infectious
+Necrotizing Fasciitis,"ACS coordinates care when other services are not on site (e.g. ortho at RVH, urology/gyne at MGH)",Admission to follow surgical care provided and patient need for repeat debridement.,Lower-limb Ortho (MGH/RVH),"** ACS IS CONSULTED SERVICE IN ALL CASES WHEN NECROTIZING FASCIITIS IS SUSPECTED based on clinical findings: pain, skin findings, fever and LRINEC >5
+
+***STAT transfers between EDs are to be facilitated by ED personnel: ambulance booking, notifying ED at alternate site***","skin, MSK",infectious
+Necrotizing Fasciitis,"ACS coordinates care when other services are not on site (e.g. ortho at RVH, urology/gyne at MGH)",Admission to follow surgical care provided and patient need for repeat debridement.,Perianal  ,"** ACS IS CONSULTED SERVICE IN ALL CASES WHEN NECROTIZING FASCIITIS IS SUSPECTED based on clinical findings: pain, skin findings, fever and LRINEC >5
+
+***STAT transfers between EDs are to be facilitated by ED personnel: ambulance booking, notifying ED at alternate site***","skin, MSK, gastrointestinal",infectious
+Necrotizing Fasciitis,"ACS coordinates care when other services are not on site (e.g. ortho at RVH, urology/gyne at MGH)",Admission to follow surgical care provided and patient need for repeat debridement.,ACS (MGH/RVH),"** ACS IS CONSULTED SERVICE IN ALL CASES WHEN NECROTIZING FASCIITIS IS SUSPECTED based on clinical findings: pain, skin findings, fever and LRINEC >5
+
+***STAT transfers between EDs are to be facilitated by ED personnel: ambulance booking, notifying ED at alternate site***","skin, MSK",infectious
+Necrotizing Fasciitis,"ACS coordinates care when other services are not on site (e.g. ortho at RVH, urology/gyne at MGH)",Admission to follow surgical care provided and patient need for repeat debridement.,Scrotal,"** ACS IS CONSULTED SERVICE IN ALL CASES WHEN NECROTIZING FASCIITIS IS SUSPECTED based on clinical findings: pain, skin findings, fever and LRINEC >5
+
+***STAT transfers between EDs are to be facilitated by ED personnel: ambulance booking, notifying ED at alternate site***","skin, MSK, genitourinary",infectious
+Necrotizing Fasciitis,"ACS coordinates care when other services are not on site (e.g. ortho at RVH, urology/gyne at MGH)",Admission to follow surgical care provided and patient need for repeat debridement.,Urology (MGH/RVH),"** ACS IS CONSULTED SERVICE IN ALL CASES WHEN NECROTIZING FASCIITIS IS SUSPECTED based on clinical findings: pain, skin findings, fever and LRINEC >5
+
+***STAT transfers between EDs are to be facilitated by ED personnel: ambulance booking, notifying ED at alternate site***","skin, MSK, genitourinary",infectious
+Necrotizing Fasciitis,"ACS coordinates care when other services are not on site (e.g. ortho at RVH, urology/gyne at MGH)",Admission to follow surgical care provided and patient need for repeat debridement.,Vulvar/Vaginal,"** ACS IS CONSULTED SERVICE IN ALL CASES WHEN NECROTIZING FASCIITIS IS SUSPECTED based on clinical findings: pain, skin findings, fever and LRINEC >5
+
+***STAT transfers between EDs are to be facilitated by ED personnel: ambulance booking, notifying ED at alternate site***","skin, MSK, genitourinary",infectious
+Necrotizing Fasciitis,"ACS coordinates care when other services are not on site (e.g. ortho at RVH, urology/gyne at MGH)",Admission to follow surgical care provided and patient need for repeat debridement.,Gyne (RVH/MGH),"** ACS IS CONSULTED SERVICE IN ALL CASES WHEN NECROTIZING FASCIITIS IS SUSPECTED based on clinical findings: pain, skin findings, fever and LRINEC >5
+
+***STAT transfers between EDs are to be facilitated by ED personnel: ambulance booking, notifying ED at alternate site***","skin, MSK, genitourinary",infectious
+"Medical Oncology Problem in Active Cancer Patients – Receiving Treatment (including complications of therapy)
+Urology Oncology
+Gynecology Oncology
+Hepatobiliary Oncology",Active cancer treatment: Chemotherapy,"Medical issue during chemotherapy (pneumonia, URI, UTI, acute renal injury -all causes)","Internal Medicine, with consultation to cancer team for LOI / prognosis / support",,,neoplastic
+"Medical Oncology Problem in Active Cancer Patients – Receiving Treatment (including complications of therapy)
+Urology Oncology
+Gynecology Oncology
+Hepatobiliary Oncology",Active cancer treatment: Chemotherapy,"Direct and complex chemo related complication, including immunotherapy, chemo related AKI/dehydration, febrile neutropenia requiring admission with no septic focus","Treating service: Med- Oncology, Heme-Oncology, Gyne-onc ",,,"neoplastic, iatrogenic/intoxication"
+"Medical Oncology Problem in Active Cancer Patients – Receiving Treatment (including complications of therapy)
+Urology Oncology
+Gynecology Oncology
+Hepatobiliary Oncology",Active cancer treatment: Radiotherapy,<72 hours of treatment requiring admission ,"SSU (RVH),",,,neoplastic
+"Medical Oncology Problem in Active Cancer Patients – Receiving Treatment (including complications of therapy)
+Urology Oncology
+Gynecology Oncology
+Hepatobiliary Oncology",Active cancer treatment: Radiotherapy,>72 hours of treatment requiring admission,"IM (JADE with radonc secondary attending) Gyne-onc, urology",,,neoplastic
+"Medical Oncology Problem in Active Cancer Patients – Receiving Treatment (including complications of therapy)
+Urology Oncology
+Gynecology Oncology
+Hepatobiliary Oncology","Cord Compression in Active cancer patients: Spine Service and radiation oncology consultation, cases to be discussed with both services.",Operative,Spine Service ,,"neurological, MSK",neoplastic
+"Medical Oncology Problem in Active Cancer Patients – Receiving Treatment (including complications of therapy)
+Urology Oncology
+Gynecology Oncology
+Hepatobiliary Oncology","Cord Compression in Active cancer patients: Spine Service and radiation oncology consultation, cases to be discussed with both services.",Operative,Consult radiation oncology,,"neurological, MSK",neoplastic
+"Medical Oncology Problem in Active Cancer Patients – Receiving Treatment (including complications of therapy)
+Urology Oncology
+Gynecology Oncology
+Hepatobiliary Oncology","Cord Compression in Active cancer patients: Spine Service and radiation oncology consultation, cases to be discussed with both services.","Non-Operative, requiring radiation treatment",Admit at RVH. Follow Radiotherapy algorithm above,,"neurological, MSK",neoplastic
+"Medical Oncology Problem in Active Cancer Patients – Receiving Treatment (including complications of therapy)
+Urology Oncology
+Gynecology Oncology
+Hepatobiliary Oncology","Uncontrolled symptoms related to complication of cancer or treatment:
+(pain, nausea, dyspnea, delirium) and for which the primary treatment is symptom-focused, irrespective of level of intervention, AND at discretion of PCU attending and nurse manager. (e.g. pain crisis from known source, complication of pain management, hypercalcemia, bowel obstruction when surgery not indicated)",,Admit PCU (priority),,,neoplastic
+"Medical Oncology Problem in Active Cancer Patients – Receiving Treatment (including complications of therapy)
+Urology Oncology
+Gynecology Oncology
+Hepatobiliary Oncology","Uncontrolled symptoms related to complication of cancer or treatment:
+(pain, nausea, dyspnea, delirium) and for which the primary treatment is symptom-focused, irrespective of level of intervention, AND at discretion of PCU attending and nurse manager. (e.g. pain crisis from known source, complication of pain management, hypercalcemia, bowel obstruction when surgery not indicated)",,Oncology,,,neoplastic
+"Medical Oncology Problem in Active Cancer Patients – Receiving Treatment (including complications of therapy)
+Urology Oncology
+Gynecology Oncology
+Hepatobiliary Oncology","Uncontrolled symptoms related to complication of cancer or treatment:
+(pain, nausea, dyspnea, delirium) and for which the primary treatment is symptom-focused, irrespective of level of intervention, AND at discretion of PCU attending and nurse manager. (e.g. pain crisis from known source, complication of pain management, hypercalcemia, bowel obstruction when surgery not indicated)",,Internal Medicine ,,,neoplastic
+"Medical Oncology Problem in Active Cancer Patients – Receiving Treatment (including complications of therapy)
+Urology Oncology
+Gynecology Oncology
+Hepatobiliary Oncology","Uncontrolled symptoms related to complication of cancer or treatment:
+(pain, nausea, dyspnea, delirium) and for which the primary treatment is symptom-focused, irrespective of level of intervention, AND at discretion of PCU attending and nurse manager. (e.g. pain crisis from known source, complication of pain management, hypercalcemia, bowel obstruction when surgery not indicated)",,Gyne oncology (for pts followed by gyne-oncology) ,,,neoplastic
+Oncology Problem in Cancer Patients NOT on active treatment,,Workup of new lesion consistent with potential new cancer diagnosis,Internal Medicine (Favor RVH if treatment during admission likely),"If palliative, see next category.",,neoplastic
+Oncology Problem in Cancer Patients NOT on active treatment,,"Recurrence, new lesions in known cancer, new cancer related issue",Admit to physician/service responsible for cancer follow up,"If palliative, see next category.",,neoplastic
+Oncology patients with advanced cancer who are no longer eligible for or no longer desire cancer-directed therapy.,,No documentation of LOI on arrival to the ED in OACIS ,Oncology,,,neoplastic
+Oncology patients with advanced cancer who are no longer eligible for or no longer desire cancer-directed therapy.,,Uncontrolled symptoms OR evidence of prognosis measured in days,PCU ,,,neoplastic
+Oncology patients with advanced cancer who are no longer eligible for or no longer desire cancer-directed therapy.,,Uncontrolled symptoms OR evidence of prognosis measured in days,SSU if PCU is expecting rapid repatriation to CISSS/CIUSSS hospital or to palliative care unit/community service <72 hours,,,neoplastic
+Osteomyelitis,,"Post-operative, related to hardware",Service involved,,MSK,"infectious, iatrogenic/intoxication"
+Osteomyelitis,,All others,Internal Medicine,,MSK,infectious
+Osteomyelitis,,All others,"If operative, see fracture/MSK and spine",,MSK,infectious
+Pancreatitis,,"Biliary and or severe (Grade C, D and E; necrosis)",ACS,,gastrointestinal,
+Pancreatitis,,  Other,SSU < 72 hrs.,,gastrointestinal,
+Pancreatitis,,  Other,Internal medicine > 72 hrs. ,,gastrointestinal,
+"Pharynx, Soft tissue Neck",,Airway compromise requiring monitoring,ICU,,HEENT,
+"Pharynx, Soft tissue Neck",,"Pharyngitis, abscess, non-cancer soft tissue disease","ENT, SSU",,HEENT,
+Pneumonia,,Not discharged within last 28 days from a service,Internal Medicine,,respiratory,infectious
+Pneumonia,,Not discharged within last 28 days from a service,"Respiratory if known or complex case (Cystic Fibrosis, Fibrosis on Lung transplant list, etc. …) ",,respiratory,infectious
+Pneumonia,,Not discharged within last 28 days from a service,SSU if less than 72 hrs.,,respiratory,infectious
+Pneumonia,,"Lung disease, no other comorbid disease",Respiratory Medicine ,,respiratory,infectious
+Pneumonia,,"Lung disease, no other comorbid disease",Internal Medicine,,respiratory,infectious
+Psychosis,,Organic cause requiring ongoing medical treatment or investigations,Internal Medicine,,psychiatric,
+Psychosis,,Organic cause related to known neurological diagnosis.,Neurology,,"psychiatric, neurological",
+Psychosis,,Organic cause related to known neurological diagnosis.,Psychiatry ,,"psychiatric, neurological",
+Psychosis,,Exacerbation of chronic psychiatric condition and no complicating organic causes identified.,"Psychiatry, sector hospital transfer",,psychiatric,
+Psychosis,,"No organic cause identified, no previous history",Psychiatry,,psychiatric,
+Pulmonary Embolus,,Stable requiring admissions,Internal Medicine,,"respiratory, cardiovascular",vascular
+Pyelonephritis,,"Obstructing ureteric stone, GU procedure within last 28 days, or indwelling urological hardware (e.g. double J, nephrostomy, excluding Foley )",Urology ,,genitourinary,
+Pyelonephritis,,All others,SSU,,genitourinary,
+Pyelonephritis,,All others,Internal Medicine,,genitourinary,
+Pyelonephritis,,Pregnant,Gyne,,genitourinary,
+Rhabdomyolysis,,Not related to crush injury,SSU,,MSK,
+Rhabdomyolysis,,Not related to crush injury,Internal medicine,,MSK,
+Rhabdomyolysis,,Crush injury,Trauma,,MSK,traumatic
+"Kidney Injury, Acute",,"New onset obstructive, requiring percutaneous or surgical intervention",Urology,,genitourinary,
+"Kidney Injury, Acute",,Obstruction related to malignancy ,See onco section unless urological cancer (then uro) ,,genitourinary,neoplastic
+"Kidney Injury, Acute",,All others,Internal Medicine,,genitourinary,
+Septic Joint,,"Shoulder, elbow, hip, knee, ankle",Orthopedics,,MSK,infectious
+Septic Joint,,Post-op or Joint Replacement ,,,MSK,infectious
+Septic Joint,,Spine,See spinal cord below,,"MSK, neurological",infectious
+Septic Joint,,Mid foot,Ortho ,,MSK,infectious
+Septic Joint,,Hand/wrist,plastics,,MSK,infectious
+Septic Joint,,All others ,Internal Medicine ,,MSK,infectious
+Sickle Cell Crisis,,,Internal Medicine ,,,
+Spinal Cord Disorders,Traumatic (All must be consulted to Trauma service),Isolated cord ,Spine Service,,"neurological, MSK",traumatic
+Spinal Cord Disorders,Traumatic (All must be consulted to Trauma service),Associated Injuries requiring active ongoing management,Trauma Service ,,"neurological, MSK",traumatic
+Spinal Cord Disorders,Non-traumatic,"Surgical (e.g. infection, compression, bleed)","Spine Service (MGH), Neurosurgery (MNH) ",,"neurological, MSK",
+Spinal Cord Disorders,Non-traumatic,"Medical (e.g. MS, syphilis) ",Internal Medicine,,"neurological, MSK",
+Spinal Cord Disorders,Non-traumatic,"Medical (e.g. MS, syphilis) ",Neurology,,"neurological, MSK",
+Spinal Cord Disorders,Non-traumatic,Cancer,Follow Oncology Algorithm,,"neurological, MSK",neoplastic
+"Spine Fractures, Isolated C/T/L fractures",Unstable,Operative,Spine Service ,,"MSK, neurological",traumatic
+"Spine Fractures, Isolated C/T/L fractures",Stable,"Operative, any C-spine",Spine Service ,,"MSK, neurological",traumatic
+"Spine Fractures, Isolated C/T/L fractures",Stable,"Non-operative, collar, brace, or simple T/L compression (C- spine EXCLUDED) requiring analgesia +/- rehab",SSU with priority access to NSA bed,,"MSK, neurological",traumatic
+"Spine Fractures, Isolated C/T/L fractures",,With cord injury,See Spinal cord,,"MSK, neurological",traumatic
+"Spine Fractures, Isolated C/T/L fractures",,With associated injuries,See Trauma,,"MSK, neurological",traumatic
+Spontaneous bleeds (coagulopathy),,,Medicine,"For example : retroperitoneal, etc. ",,vascular
+Spontaneous bleeds (coagulopathy),,,If requires OR or embolization: ACS ,"For example : retroperitoneal, etc. ",,vascular
+Stroke Ischemic,,"Hyperacute stroke, potential thrombectomy",Immediate transfer to MNH (CH3 on CVA protocol),,"neurological, cardiovascular",vascular
+Stroke Ischemic,,Acute stroke,See stroke transfer algorithm and CVA protocol in the patient flow document list to be found on the intranet. MNH vs MGH must be clarified by the admitting neurology staff,,"neurological, cardiovascular",vascular
+Transplant Patient,,Cardiac transplant and graft related,"Cardiac Surgery, Cardiology (RVH) ",,cardiovascular,
+Transplant Patient,,"Bone Marrow, Stem Cell: graft failure, GVHD, atypical infection",Hematology ,,,
+Transplant Patient,,Liver and pancreas: Liver Graft dysfunction or biliary complication after transplant or need for admission within 1 month of discharge post-transplant.,Transplant Surgery ,,gastrointestinal,
+Transplant Patient,,"Pancreas: organ rejection, graft dysfunction or need for readmission within 1 month of discharge post-transplant",Transplant Surgery ,,gastrointestinal,
+Transplant Patient,,Kidney: surgical complication or need for readmission within 1 month of discharge post-transplant; Ureteric obstruction requiring intervention.,Transplant Surgery ,,genitourinary,
+Transplant Patient,,Renal transplant: 1-6 months post-transplant unless surgical complication,Transplant Nephrology ,,genitourinary,
+Transplant Patient,,Transplant patients not meeting criteria above but requiring admission for medical reason including liver failure awaiting transplant,Internal Medicine (RVH),,,
+Trauma,Single system injury,Head/brain trauma,"Neurosurgery (MGH only), ICU (MGH only)",*Inactive fracture(s) – see Fracture/MSK,"neurological, HEENT",traumatic
+Trauma,Single system injury,Facial,"OMF (MGH), Plastics ",*Inactive fracture(s) – see Fracture/MSK,HEENT,traumatic
+Trauma,Single system injury,Eye/adnexa,Ophthalmology ,*Inactive fracture(s) – see Fracture/MSK,HEENT,traumatic
+Trauma,Single system injury,Spine/spinal cord,See spine/spinal cord.,*Inactive fracture(s) – see Fracture/MSK,"neurological, MSK",traumatic
+Trauma,Single system injury,Thoraco-abdominal,"Trauma service, ICU (MGH only)",*Inactive fracture(s) – see Fracture/MSK,,traumatic
+Trauma,Single system injury,All other MSK,Orthopedics ,*Inactive fracture(s) – see Fracture/MSK,MSK,traumatic
+Trauma,,Multi (>2) system injuries requiring active treatment,"Trauma service, ICU (MGH only)",*Inactive fracture(s) – see Fracture/MSK,,traumatic

@@ -1,3 +1,2 @@
 ,Diagnosis/Presenting problem,Specific Factors 1,Specific Factors 2,Admitting Service,Notes,System,Mechanism,text
-185,Spontaneous bleeds (coagulopathy),,,Medicine,"For example : retroperitoneal, etc. ",,vascular,"['Spontaneous bleeds (coagulopathy)', 'nan', 'nan', 'Medicine', 'For example : retroperitoneal, etc. ']"
-186,Spontaneous bleeds (coagulopathy),,,If requires OR or embolization: ACS ,"For example : retroperitoneal, etc. ",,vascular,"['Spontaneous bleeds (coagulopathy)', 'nan', 'nan', 'If requires OR or embolization: ACS ', 'For example : retroperitoneal, etc. ']"
+9,Biliary Disease,Malignant biliary:,Known cases documented by surgery as clearly not resectable and not related to complications listed above,Follow Oncology algorithm,,gastrointestinal,neoplastic,"['Biliary Disease', 'Malignant biliary:', 'Known cases documented by surgery as clearly not resectable and not related to complications listed above', 'Follow Oncology algorithm', 'nan']"

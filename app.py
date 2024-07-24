@@ -146,7 +146,7 @@ else:
 
 
 ##RENDER
-st.write("**Emergency Room Admission Algorithm:**")
+st.title("Emergency Room Admission Algorithm:")
 
 _ = """ with st.form("my_form"):
    st.write("**Form container:**")
@@ -158,42 +158,86 @@ _ = """ with st.form("my_form"):
    #manual = st.text_input("Manual Search")
    st.form_submit_button('Submit my picks') """
 
-column1, column2 = st.columns(2)
+with st.container(border = True):
+    column1, column2 = st.columns(2)
 
-system_selection = column1.selectbox('Pick a system', system_labels, index=0)
-mechanism_selection = column2.selectbox('Pick a mechanism',mechanism_labels, index=0)
+    system_selection = column1.selectbox('Pick a system', system_labels, index=0)
+    mechanism_selection = column2.selectbox('Pick a mechanism',mechanism_labels, index=0)
 
-# This is outside the form
-#st.write("Mechanism: ",mechanism_selection)
-#st.write("System:", system_selection)
-#st.write("\n\n")
-#st.write("Manual search: ", manual)
+    # This is outside the form
+    #st.write("Mechanism: ",mechanism_selection)
+    #st.write("System:", system_selection)
+    #st.write("\n\n")
+    #st.write("Manual search: ", manual)
 
-sub0_sys = explicitSearch(system_selection, df, col6)
-sub0_mech = explicitSearch(mechanism_selection, sub0_sys, col7)
+    sub0_sys = explicitSearch(system_selection, df, col6)
+    sub0_mech = explicitSearch(mechanism_selection, sub0_sys, col7)
 
-#st.write(sub0_mech) 
+    #st.write(sub0_mech) 
 
-#Get button list from sub0_mech
-working_labels = list(set(sub0_mech[col1].tolist()))
-prompt1 = st.selectbox('Pick a problem', working_labels)
+    #Get button list from sub0_mech
+    working_labels = list(set(sub0_mech[col1].tolist()))
+    prompt1 = st.selectbox('Pick a problem', working_labels)
+
+    _ = """
+    with st.container():
+        message = st.chat_message("assistant")
+        message.write("What is the presenting problem? Please use the shortest descriptor possible.")
+        prompt1 = st.chat_input("User input")
+
+        st.write("\n", prompt1)
+    """
+
+    #sub1 = fuzzysearch(prompt1,sub0_mech,"text")
+    if prompt1:
+        sub1 = explicitSearch(prompt1, sub0_mech, col1)
+        #st.write(sub1)
+
+    working_SF1 = list(set(sub1[col2].tolist()))
+
+    if any(sub1[col2].apply(lambda x: isinstance(x, str) and x.strip() != '') if sub1[col2].dtype == 'O' else sub1[col2].notna()):
+        prompt2 = st.selectbox('Pick a category', working_SF1)
+        if prompt2:
+            sub2 = explicitSearch(prompt2, sub1, col2)
+            #st.write(sub2)
+        SF1 = True
+    else:
+        SF1 = False
+        sub2 = sub1
+        #st.write(sub2)
+
+    working_SF2 = list(set(sub2[col3].tolist()))
+
+    if any(sub2[col3].apply(lambda x: isinstance(x, str) and x.strip() != '') if sub2[col3].dtype == 'O' else sub2[col3].notna()):
+        prompt3 = st.selectbox('Pick a specific category', working_SF2)
+        if prompt3:
+            sub3 = explicitSearch(prompt3, sub2, col3)
+            #st.write(sub3)
+    else:
+        sub3 = sub2
+        #st.write(sub3)
+
+with st.container(border = True):
+    st.subheader("Recommended admitting service:")
+    st.dataframe(sub3, hide_index = True, column_order = (col4, col5))
+
+
+
 
 _ = """
-with st.container():
-    message = st.chat_message("assistant")
-    message.write("What is the presenting problem? Please use the shortest descriptor possible.")
-    prompt1 = st.chat_input("User input")
+Set-like
+def dataframe_to_setlike(df):
+    # Group by the first column and aggregate the other columns
+    aggregated_df = df.groupby(df.columns[0]).agg(lambda x: ', '.join(x.astype(str).unique()))
+    
+    return aggregated_df.reset_index()
 
-    st.write("\n", prompt1)
+# Applying the function
+sub1_setlike = dataframe_to_setlike(sub1)
+
+# Display the unique DataFrame
+st.write(sub1_setlike)
 """
-
-#sub1 = fuzzysearch(prompt1,sub0_mech,"text")
-if prompt1:
-    sub1 = explicitSearch(prompt1, sub0_mech, col1)
-    st.write(sub1)
-
-
-
 
 
 

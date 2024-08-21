@@ -73,7 +73,21 @@ def explicitSearch(userInput, df, r):
         sub1.to_csv("sub1_content.csv")
     return sub1
 
-
+def selection_to_string(selection, labels, fancy_labels):
+    try:
+        # Find the index of search_string in list1
+        index = fancy_labels.index(selection)
+        
+        # Return the value from list2 at the found index
+        return labels[index]
+    
+    except ValueError:
+        # search_string is not found in list1
+        return None
+    
+    except IndexError:
+        # The index is out of range for list2
+        return None
 
 
 ##MAIN
@@ -94,11 +108,13 @@ cat_file = open("categories.json")
 categories = json.load(cat_file)
 system_labels = categories["system"]
 mechanism_labels = categories["mechanism"]
+system_labels_fancy = categories["system fancy"]
+mechanism_labels_fancy = categories["mechanism fancy"]
 
-system_labels.insert(0, "no selection")
-system_labels.insert(-1, "systemic")
-mechanism_labels.insert(0, "no selection")
-mechanism_labels.insert(-1, "other")
+#system_labels.insert(0, "no selection")
+#system_labels.insert(-1, "systemic")
+#mechanism_labels.insert(0, "no selection")
+#mechanism_labels.insert(-1, "other")
 
 _ = """
 system_selection = parse_user("Please select from the following systems:\n" + str(system_labels))
@@ -161,8 +177,10 @@ _ = """ with st.form("my_form"):
 with st.container(border = True):
     column1, column2 = st.columns(2)
 
-    system_selection = column1.selectbox('Pick a system', system_labels, index=0)
-    mechanism_selection = column2.selectbox('Pick a mechanism',mechanism_labels, index=0)
+    #system_selection = column1.selectbox('Pick a system', system_labels, index=0)
+    #mechanism_selection = column2.selectbox('Pick a mechanism',mechanism_labels, index=0)
+    system_selection = selection_to_string(column1.radio('**Pick a system**', system_labels_fancy, index=0), system_labels, system_labels_fancy)
+    mechanism_selection = selection_to_string(column2.radio('**Pick a mechanism**',mechanism_labels_fancy, index=0), mechanism_labels, mechanism_labels_fancy)
 
     # This is outside the form
     #st.write("Mechanism: ",mechanism_selection)
@@ -177,7 +195,11 @@ with st.container(border = True):
 
     #Get button list from sub0_mech
     working_labels = list(set(sub0_mech[col1].tolist()))
-    prompt1 = st.selectbox('Pick a problem', working_labels)
+    
+
+with st.container(border = True):
+    #prompt1 = st.selectbox('Pick a problem', working_labels)
+    prompt1 = st.radio('**Pick a problem**', working_labels)
 
     _ = """
     with st.container():
@@ -192,24 +214,29 @@ with st.container(border = True):
     if prompt1:
         sub1 = explicitSearch(prompt1, sub0_mech, col1)
         #st.write(sub1)
+    else:
+        sub1 = sub0_mech
+        st.subheader("No results match this search, please try another selection.")
 
     working_SF1 = list(set(sub1[col2].tolist()))
 
     if any(sub1[col2].apply(lambda x: isinstance(x, str) and x.strip() != '') if sub1[col2].dtype == 'O' else sub1[col2].notna()):
-        prompt2 = st.selectbox('Pick a category', working_SF1)
+        #prompt2 = st.selectbox('Pick a category', working_SF1)
+        prompt2 = st.radio('**Pick a category**', working_SF1)
         if prompt2:
             sub2 = explicitSearch(prompt2, sub1, col2)
             #st.write(sub2)
-        SF1 = True
+
     else:
-        SF1 = False
+
         sub2 = sub1
         #st.write(sub2)
 
     working_SF2 = list(set(sub2[col3].tolist()))
 
     if any(sub2[col3].apply(lambda x: isinstance(x, str) and x.strip() != '') if sub2[col3].dtype == 'O' else sub2[col3].notna()):
-        prompt3 = st.selectbox('Pick a specific category', working_SF2)
+        #prompt3 = st.selectbox('Pick a specific category', working_SF2)
+        prompt3 = st.radio('**Pick a specific category**', working_SF2)
         if prompt3:
             sub3 = explicitSearch(prompt3, sub2, col3)
             #st.write(sub3)
@@ -217,9 +244,11 @@ with st.container(border = True):
         sub3 = sub2
         #st.write(sub3)
 
+config = {"Admitting Service": st.column_config.TextColumn(width="large"), "Notes": st.column_config.TextColumn(width="large")}
+
 with st.container(border = True):
     st.subheader("Recommended admitting service:")
-    st.dataframe(sub3, hide_index = True, column_order = (col4, col5))
+    st.dataframe(sub3, hide_index = True, column_order = (col4, col5), use_container_width=True, column_config=config)
 
 
 

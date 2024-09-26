@@ -26,7 +26,7 @@ def initialize_csv(csv_name):
   return(df, col1, col2, col3, col4, col5, col6, col7)
 
 ##Search functions
-'''
+_ = '''
 #CURRENTLY UNUSED
 #function that will take the user input,df,specified row to search in to match userInput, and outputs a new df with top matches (highest ratio from fuzzy search)
 def fuzzysearch(userInput, df, r, top1 = False):

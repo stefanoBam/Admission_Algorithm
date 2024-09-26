@@ -1,5 +1,2 @@
 ,Diagnosis/Presenting problem,Specific Factors 1,Specific Factors 2,Admitting Service,Notes,System,Mechanism,text
-128,"Medical Oncology Problem in Active Cancer Patients – Receiving Treatment (including complications of therapy)
-Urology Oncology
-Gynecology Oncology
-Hepatobiliary Oncology","Cord Compression in Active cancer patients: Spine Service and radiation oncology consultation, cases to be discussed with both services.","Non-Operative, requiring radiation treatment",Admit at RVH. Follow Radiotherapy algorithm above,,"neurological, MSK",neoplastic,"['Medical Oncology Problem in Active Cancer Patients – Receiving Treatment (including complications of therapy)\nUrology Oncology\nGynecology Oncology\nHepatobiliary Oncology', 'Cord Compression in Active cancer patients: Spine Service and radiation oncology consultation, cases to be discussed with both services.', 'Non-Operative, requiring radiation treatment', 'Admit at RVH. Follow Radiotherapy algorithm above', 'nan']"
+9,Biliary Disease,Malignant biliary:,Known cases documented by surgery as clearly not resectable and not related to complications listed above,Follow Oncology algorithm,,gastrointestinal,neoplastic,"['Biliary Disease', 'Malignant biliary:', 'Known cases documented by surgery as clearly not resectable and not related to complications listed above', 'Follow Oncology algorithm', 'nan']"

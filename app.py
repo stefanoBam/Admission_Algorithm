@@ -253,6 +253,20 @@ with st.container(border = True):
     st.dataframe(sub3, hide_index = True, column_order = (col4, col5), use_container_width=True, column_config=config)
 
 
+with st.container(border = True):
+    st.subheader("Feedback:")
+    agree = st.radio('**Do you agree with the admitting service proposed?**', ["Yes", "No"])
+    if agree == "No":
+        comment = st.text_input("**Comments**")
+
+submitted = st.button("Submit")
+
+if submitted:
+    #write to csv
+    #[system_selection, mechanism_selection, prompt1, prompt2, prompt3, agree, comment]
+
+
+
 
 
 _ = """

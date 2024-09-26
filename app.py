@@ -1,15 +1,11 @@
 import streamlit as st
 
-from thefuzz import fuzz, process
+#from thefuzz import fuzz, process
 import csv
 import pandas as pd
 import numpy as np
 import os
 import json
-
-#Define global out and in variables to control rendered text
-curr_out = "OUT"
-curr_in = "IN"
 
 ## Import libraries and open CSV
 
@@ -29,22 +25,9 @@ def initialize_csv(csv_name):
   #print(df.columns)
   return(df, col1, col2, col3, col4, col5, col6, col7)
 
-## Parse User Input
-_ = """
-def parse_user(prompt, choices = 0):
-  #define the globals here to let this function write to them
-  global curr_out
-  global curr_in
-
-  if prompt: curr_out = "\n"+prompt
-  if choices: print(choices)
-  input1 = str(curr_in)
-  #TODO: Add parsing if necessary
-  return input1
-"""
-
 ##Search functions
-
+_ = '''
+#CURRENTLY UNUSED
 #function that will take the user input,df,specified row to search in to match userInput, and outputs a new df with top matches (highest ratio from fuzzy search)
 def fuzzysearch(userInput, df, r, top1 = False):
 
@@ -68,17 +51,45 @@ def fuzzysearch(userInput, df, r, top1 = False):
 
   return sub1
 
+'''
+
 #function that will take the user input,df,specified row to search in to match userInput, and outputs a new df with top matches (highest ratio from fuzzy search)
 def explicitSearch(userInput, df, r):
-  mask = df[r].str.contains(userInput)
-  #print(mask)
-  mask = mask.replace(np.NaN,True)
+    #No selection will show all possible options in the category
+    if userInput == "no selection":
+        sub1 = df
+    #Other will show only items with no explicit tag in this category (ie. no tagged system/mechanism depedning which you are searching)
+    elif userInput == "other" or userInput == "systemic":
+        mask = df[r].str.find("")
+        mask = mask.replace(np.NaN,True)
+        mask = mask.replace(0,False)
+        sub1 = df[mask]
+        sub1.to_csv("sub1_content.csv")
+    #Otherwise, explicitly search for the exact term used, since the user is selecting using a drop-down, so we know the spelling/phrasing etc.
+    else:
+        mask = df[r].str.contains(userInput,regex=False)
+        #print(mask)
+        mask = mask.replace(np.NaN,False)
 
-  sub1 = df[mask]
-  sub1.to_csv("sub1_content.csv")
-  return sub1
+        sub1 = df[mask]
+        sub1.to_csv("sub1_content.csv")
+    return sub1
 
-
+def selection_to_string(selection, labels, fancy_labels):
+    try:
+        # Find the index of search_string in list1
+        index = fancy_labels.index(selection)
+        
+        # Return the value from list2 at the found index
+        return labels[index]
+    
+    except ValueError:
+        # search_string is not found in list1
+        return None
+    
+    except IndexError:
+        # The index is out of range for list2
+        return None
 
 
 ##MAIN
@@ -99,6 +110,13 @@ cat_file = open("categories.json")
 categories = json.load(cat_file)
 system_labels = categories["system"]
 mechanism_labels = categories["mechanism"]
+system_labels_fancy = categories["system fancy"]
+mechanism_labels_fancy = categories["mechanism fancy"]
+
+#system_labels.insert(0, "no selection")
+#system_labels.insert(-1, "systemic")
+#mechanism_labels.insert(0, "no selection")
+#mechanism_labels.insert(-1, "other")
 
 _ = """
 system_selection = parse_user("Please select from the following systems:\n" + str(system_labels))
@@ -146,8 +164,7 @@ else:
 
 
 ##RENDER
-st.write("**Emergency Room Admission Algorithm:**")
-
+st.title("Emergency Room Admission Algorithm:")
 
 _ = """ with st.form("my_form"):
    st.write("**Form container:**")
@@ -159,27 +176,99 @@ _ = """ with st.form("my_form"):
    #manual = st.text_input("Manual Search")
    st.form_submit_button('Submit my picks') """
 
+with st.container(border = True):
+    column1, column2 = st.columns(2)
 
-mechanism_selection = st.selectbox('Pick a mechanism',mechanism_labels )
-system_selection = st.selectbox('Pick a system', system_labels)
-# This is outside the form
-#st.write("Mechanism: ",mechanism_selection)
-#st.write("System:", system_selection)
-#st.write("\n\n")
-#st.write("Manual search: ", manual)
+    #system_selection = column1.selectbox('Pick a system', system_labels, index=0)
+    #mechanism_selection = column2.selectbox('Pick a mechanism',mechanism_labels, index=0)
+    system_selection = selection_to_string(column1.radio('**Pick a system**', system_labels_fancy, index=0), system_labels, system_labels_fancy)
+    mechanism_selection = selection_to_string(column2.radio('**Pick a mechanism**',mechanism_labels_fancy, index=0), mechanism_labels, mechanism_labels_fancy)
 
-sub0_sys = explicitSearch(system_selection, df, col6)
-sub0_mech = explicitSearch(mechanism_selection, sub0_sys, col7)
+    # This is outside the form
+    #st.write("Mechanism: ",mechanism_selection)
+    #st.write("System:", system_selection)
+    #st.write("\n\n")
+    #st.write("Manual search: ", manual)
 
-st.write(sub0_mech) 
+    sub0_sys = explicitSearch(system_selection, df, col6)
+    sub0_mech = explicitSearch(mechanism_selection, sub0_sys, col7)
 
-with st.container():
-    message = st.chat_message("assistant")
-    message.write("What is the presenting problem? Please use the shortest descriptor possible.")
-    prompt1 = st.chat_input("User input")
+    #st.write(sub0_mech) 
 
-    st.write("\n", prompt1)
+    #Get button list from sub0_mech
+    working_labels = list(set(sub0_mech[col1].tolist()))
+    
 
-sub1 = fuzzysearch(prompt1,sub0_mech,"text")
+with st.container(border = True):
+    #prompt1 = st.selectbox('Pick a problem', working_labels)
+    prompt1 = st.radio('**Pick a problem**', working_labels)
 
-st.write(sub1)
+    _ = """
+    with st.container():
+        message = st.chat_message("assistant")
+        message.write("What is the presenting problem? Please use the shortest descriptor possible.")
+        prompt1 = st.chat_input("User input")
+
+        st.write("\n", prompt1)
+    """
+
+    #sub1 = fuzzysearch(prompt1,sub0_mech,"text")
+    if prompt1:
+        sub1 = explicitSearch(prompt1, sub0_mech, col1)
+        #st.write(sub1)
+    else:
+        sub1 = sub0_mech
+        st.subheader("No results match this search, please try another selection.")
+
+    working_SF1 = list(set(sub1[col2].tolist()))
+
+    if any(sub1[col2].apply(lambda x: isinstance(x, str) and x.strip() != '') if sub1[col2].dtype == 'O' else sub1[col2].notna()):
+        #prompt2 = st.selectbox('Pick a category', working_SF1)
+        prompt2 = st.radio('**Pick a category**', working_SF1)
+        if prompt2:
+            sub2 = explicitSearch(prompt2, sub1, col2)
+            #st.write(sub2)
+
+    else:
+
+        sub2 = sub1
+        #st.write(sub2)
+
+    working_SF2 = list(set(sub2[col3].tolist()))
+
+    if any(sub2[col3].apply(lambda x: isinstance(x, str) and x.strip() != '') if sub2[col3].dtype == 'O' else sub2[col3].notna()):
+        #prompt3 = st.selectbox('Pick a specific category', working_SF2)
+        prompt3 = st.radio('**Pick a specific category**', working_SF2)
+        if prompt3:
+            sub3 = explicitSearch(prompt3, sub2, col3)
+            #st.write(sub3)
+    else:
+        sub3 = sub2
+        #st.write(sub3)
+
+config = {"Admitting Service": st.column_config.TextColumn(width="large"), "Notes": st.column_config.TextColumn(width="large")}
+
+with st.container(border = True):
+    st.subheader("Recommended admitting service:")
+    st.dataframe(sub3, hide_index = True, column_order = (col4, col5), use_container_width=True, column_config=config)
+
+
+
+
+_ = """
+Set-like
+def dataframe_to_setlike(df):
+    # Group by the first column and aggregate the other columns
+    aggregated_df = df.groupby(df.columns[0]).agg(lambda x: ', '.join(x.astype(str).unique()))
+    
+    return aggregated_df.reset_index()
+
+# Applying the function
+sub1_setlike = dataframe_to_setlike(sub1)
+
+# Display the unique DataFrame
+st.write(sub1_setlike)
+"""
+
+
+

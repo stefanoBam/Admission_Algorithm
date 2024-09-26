@@ -1,5 +1,6 @@
 {"system":
     [
+        "no selection",
         "respiratory",
         "HEENT",
         "cardiovascular",
@@ -8,14 +9,41 @@
         "neurological",
         "psychiatric",
         "skin",
-        "MSK"
+        "MSK",
+        "systemic"
     ],
 "mechanism":
     [
+        "no selection",
         "vascular",
         "infectious",
         "neoplastic",
         "iatrogenic/intoxication",
-        "traumatic"
+        "traumatic",
+        "other"
+    ],
+"system fancy":
+    [
+        ":no_entry_sign: No Selection",
+        ":wind_blowing_face: Respiratory",
+        ":bald_man: HEENT",
+        ":heart: Cardiovascular",
+        ":poop: Gastrointestinal",
+        ":briefs: Genitourinary",
+        ":brain: Neurological",
+        ":thought_balloon: Psychiatric",
+        ":raised_hand_with_fingers_splayed: Skin",
+        ":bone: MSK",
+        ":clipboard: Systemic"
+    ],
+"mechanism fancy":
+    [
+        ":no_entry_sign: No Selection",
+        ":drop_of_blood: Vascular",
+        ":microbe: Infectious",
+        ":reminder_ribbon: Neoplastic",
+        ":pill: Iatrogenic/intoxication",
+        ":face_with_head_bandage: Traumatic",
+        ":clipboard: Other"
     ]
 }

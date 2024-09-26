@@ -1,6 +1,6 @@
 import streamlit as st
 
-from thefuzz import fuzz, process
+#from thefuzz import fuzz, process
 import csv
 import pandas as pd
 import numpy as np
@@ -26,7 +26,7 @@ def initialize_csv(csv_name):
   return(df, col1, col2, col3, col4, col5, col6, col7)
 
 ##Search functions
-
+'''
 #CURRENTLY UNUSED
 #function that will take the user input,df,specified row to search in to match userInput, and outputs a new df with top matches (highest ratio from fuzzy search)
 def fuzzysearch(userInput, df, r, top1 = False):
@@ -50,6 +50,8 @@ def fuzzysearch(userInput, df, r, top1 = False):
     sub1 = df.loc[df['ratio'] >= (max_ratio - 5)] #subtable with the best ratios (anything that's >= max-5)
 
   return sub1
+
+'''
 
 #function that will take the user input,df,specified row to search in to match userInput, and outputs a new df with top matches (highest ratio from fuzzy search)
 def explicitSearch(userInput, df, r):

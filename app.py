@@ -264,6 +264,7 @@ submitted = st.button("Submit")
 if submitted:
     #write to csv
     #[system_selection, mechanism_selection, prompt1, prompt2, prompt3, agree, comment]
+    x = True
 
 
 

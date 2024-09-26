@@ -183,9 +183,3 @@ with st.container():
 sub1 = fuzzysearch(prompt1,sub0_mech,"text")
 
 st.write(sub1)
-
-
-
-
-
-

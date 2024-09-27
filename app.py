@@ -94,6 +94,17 @@ def selection_to_string(selection, labels, fancy_labels):
 
 ##MAIN
 #Incoporates code from Robert et. Al <3
+
+#Sets page-width to wide to minimize side margins
+st.set_page_config(layout="wide")
+st.markdown(
+    """<style>
+div[class*="stRadio"] > options > div[data-testid="stMarkdownContainer"] > p {
+    font-size: 64px;
+}
+    </style>
+    """, unsafe_allow_html=True)
+
 #Calls initialize_csv function and assigns the output values
 df, col1, col2, col3, col4, col5, col6, col7 = initialize_csv('Admit_table_wCat_csv.csv')
 
@@ -175,8 +186,9 @@ _ = """ with st.form("my_form"):
    system_selection = st.selectbox('Pick a system', mechanism_labels)
    #manual = st.text_input("Manual Search")
    st.form_submit_button('Submit my picks') """
-
-with st.container(border = True):
+#with st.container(border = True):
+Mcolumn1, Mcolumn2 = st.columns(2)
+with Mcolumn1.container(border = True):
     column1, column2 = st.columns(2)
 
     #system_selection = column1.selectbox('Pick a system', system_labels, index=0)
@@ -199,7 +211,7 @@ with st.container(border = True):
     working_labels = list(set(sub0_mech[col1].tolist()))
     
 
-with st.container(border = True):
+with Mcolumn1.container(border = True):
     #prompt1 = st.selectbox('Pick a problem', working_labels)
     prompt1 = st.radio('**Pick a problem**', working_labels)
 
@@ -248,12 +260,12 @@ with st.container(border = True):
 
 config = {"Admitting Service": st.column_config.TextColumn(width="large"), "Notes": st.column_config.TextColumn(width="large")}
 
-with st.container(border = True):
+with Mcolumn2.container(border = True):
     st.subheader("Recommended admitting service:")
     st.dataframe(sub3, hide_index = True, column_order = (col4, col5), use_container_width=True, column_config=config)
 
 
-with st.container(border = True):
+with Mcolumn2.container(border = True):
     st.subheader("Feedback:")
     agree = st.radio('**Do you agree with the admitting service proposed?**', ["Yes", "No"])
     if agree == "No":

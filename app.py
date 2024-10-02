@@ -91,19 +91,13 @@ def selection_to_string(selection, labels, fancy_labels):
         # The index is out of range for list2
         return None
 
-
 ##MAIN
 #Incoporates code from Robert et. Al <3
 
 #Sets page-width to wide to minimize side margins
 st.set_page_config(layout="wide")
-st.markdown(
-    """<style>
-div[class*="stRadio"] > options > div[data-testid="stMarkdownContainer"] > p {
-    font-size: 64px;
-}
-    </style>
-    """, unsafe_allow_html=True)
+with open( "style.css" ) as css:
+    st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
 
 #Calls initialize_csv function and assigns the output values
 df, col1, col2, col3, col4, col5, col6, col7 = initialize_csv('Admit_table_wCat_csv.csv')
@@ -270,16 +264,13 @@ with Mcolumn2.container(border = True):
     agree = st.radio('**Do you agree with the admitting service proposed?**', ["Yes", "No"])
     if agree == "No":
         comment = st.text_input("**Comments**")
+    submitted = st.button("Submit")
 
-submitted = st.button("Submit")
 
 if submitted:
     #write to csv
     #[system_selection, mechanism_selection, prompt1, prompt2, prompt3, agree, comment]
     x = True
-
-
-
 
 
 _ = """
@@ -296,6 +287,3 @@ sub1_setlike = dataframe_to_setlike(sub1)
 # Display the unique DataFrame
 st.write(sub1_setlike)
 """
-
-
-

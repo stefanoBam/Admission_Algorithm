@@ -72,7 +72,7 @@ def explicitSearch(userInput, df, r):
         mask = mask.replace(np.NaN,False)
 
         sub1 = df[mask]
-        sub1.to_csv("sub1_content.csv")
+        #sub1.to_csv("sub1_content.csv")
     return sub1
 
 def selection_to_string(selection, labels, fancy_labels):

@@ -263,7 +263,6 @@ with Mcolumn2.container(border = True):
 
 #NOT DONE YET: some bugs to fix: apparently dataframe.append doesn't exist jfdekgns, also catch whenever prompt2 doesn't exist !! and also when there is no comment, etc.
 #function that will collect all data (user input + feedback) into a csv
-#testing out push??
 def collect_user_data(data_file_path, sys,mec,prob,cat,scat,aod,comment):
     #verify if the csv exists in the directory
     if os.path.exists(data_file_path):

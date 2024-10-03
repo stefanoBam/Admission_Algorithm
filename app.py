@@ -5,6 +5,7 @@ import csv
 import pandas as pd
 import numpy as np
 import os
+import time
 import json
 
 ## Import libraries and open CSV
@@ -169,6 +170,8 @@ else:
 
 
 ##RENDER
+path = 'Admit_table_wCat_csv.csv'
+st.markdown("$\\textsf{\\scriptsize CSV last updated: " + time.ctime(os.path.getmtime(path)) + "}$")
 st.title("Emergency Room Admission Algorithm:")
 
 _ = """ with st.form("my_form"):

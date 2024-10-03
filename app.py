@@ -258,6 +258,38 @@ with Mcolumn2.container(border = True):
     st.subheader("Recommended admitting service:")
     st.dataframe(sub3, hide_index = True, column_order = (col4, col5), use_container_width=True, column_config=config)
 
+#NOT DONE YET: some bugs to fix: apparently dataframe.append doesn't exist jfdekgns, also catch whenever prompt2 doesn't exist !! and also when there is no comment, etc.
+#function that will collect all data (user input + feedback) into a csv
+def collect_user_data(data_file_path, sys,mec,prob,cat,scat,aod,comment):
+    #verify if the csv exists in the directory
+    if os.path.exists(data_file_path):
+        user_data = pd.read_csv(data_file_path)
+        new_user_data = pd.DataFrame({
+            "system_selection":[sys],
+            "mechanism_selection":[mec],
+            "problem_selection":[prob],
+            "category_selection":[cat],
+            "specific_category_selection":[scat],
+            "agree_or_disagree":[aod],
+            "comment":[comment]
+        })
+        n_user_data = user_data.append(new_user_data)
+        n_user_data.to_csv(data_file_path)
+        return n_user_data
+    #if the csv does not exist, it will initialize/create the csv
+    else:
+        #initialize dictionary that will collect all the data (user input and feedback)
+        user_data = pd.DataFrame({
+            "system_selection":[sys],
+            "mechanism_selection":[mec],
+            "problem_selection":[prob],
+            "category_selection":[cat],
+            "specific_category_selection":[scat],
+            "agree_or_disagree":[aod],
+            "comment":[comment]
+        })
+        user_data.to_csv(data_file_path)
+    return user_data
 
 with Mcolumn2.container(border = True):
     st.subheader("Feedback:")
@@ -266,11 +298,12 @@ with Mcolumn2.container(border = True):
         comment = st.text_input("**Comments**")
     submitted = st.button("Submit")
 
-
 if submitted:
     #write to csv
+    print(system_selection, mechanism_selection, prompt1, prompt2, prompt3, agree, comment)
+    collect_user_data("user_data.csv", system_selection, mechanism_selection, prompt1, prompt2, prompt3, agree, comment)
     #[system_selection, mechanism_selection, prompt1, prompt2, prompt3, agree, comment]
-    x = True
+
 
 
 _ = """

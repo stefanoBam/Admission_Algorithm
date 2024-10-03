@@ -261,7 +261,8 @@ with Mcolumn2.container(border = True):
     st.subheader("Recommended admitting service:")
     st.dataframe(sub3, hide_index = True, column_order = (col4, col5), use_container_width=True, column_config=config)
 
-#NOT DONE YET: some bugs to fix: apparently dataframe.append doesn't exist jfdekgns, also catch whenever prompt2 doesn't exist !! and also when there is no comment, etc.
+#NOT DONE YET: some bugs to fix: apparently dataframe.append doesn't exist jfdekgns
+#also need to add the final recommended admitting service
 #function that will collect all data (user input + feedback) into a csv
 def collect_user_data(data_file_path, sys,mec,prob,cat,scat,aod,comment):
     #verify if the csv exists in the directory
@@ -303,6 +304,10 @@ with Mcolumn2.container(border = True):
 
 if submitted:
     #write to csv
+    if 'prompt2' not in globals(): #if prompt2 was never initialized because it wasn't an option for the user
+        prompt2 = "n/a"
+    if 'comment' not in globals(): #if comment was never initialized because user clicked "Agree" for the feedback
+        comment = "n/a"
     print(system_selection, mechanism_selection, prompt1, prompt2, prompt3, agree, comment)
     collect_user_data("user_data.csv", system_selection, mechanism_selection, prompt1, prompt2, prompt3, agree, comment)
     #[system_selection, mechanism_selection, prompt1, prompt2, prompt3, agree, comment]

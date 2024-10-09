@@ -76,6 +76,29 @@ def explicitSearch(userInput, df, r):
         #sub1.to_csv("sub1_content.csv")
     return sub1
 
+def explicitSearchList(userInput, df, r):
+    #No selection will show all possible options in the category
+    if not userInput:
+        sub1 = df
+ 
+    #Otherwise, explicitly search for the exact term used, since the user is selecting using a drop-down, so we know the spelling/phrasing etc.
+    else:
+        sub1 = pd.DataFrame()
+        for label in userInput:
+            mask = df[r].str.contains(label,regex=False)
+            #print(mask)
+            mask = mask.replace(np.NaN,False)
+            sub1 = pd.concat([sub1,df[mask]], ignore_index=True)
+            #sub1.to_csv("sub1_content.csv")
+
+           #Other will show only items with no explicit tag in this category (ie. no tagged system/mechanism depedning which you are searching)
+        if "other" in userInput or "systemic" in userInput:
+            mask = df[r].str.find("")
+            mask = mask.replace(np.NaN,True)
+            mask = mask.replace(0,False) 
+            sub1 = pd.concat([sub1,df[mask]], ignore_index=True)
+    return sub1
+
 def selection_to_string(selection, labels, fancy_labels):
     try:
         # Find the index of search_string in list1
@@ -91,6 +114,24 @@ def selection_to_string(selection, labels, fancy_labels):
     except IndexError:
         # The index is out of range for list2
         return None
+
+def read_dict(dict):
+    output = []
+    for k,v in dict.items():
+        if v == True:
+            output.append(k)
+    return output
+
+def clear_selections():
+    if "TFprompt1" in globals():
+        for k in TFprompt1.keys():
+            TFprompt1[k] = False
+    if "TFsys" in globals():
+        for k in TFsys.keys():
+            TFsys[k] = False
+    if "TFmech" in globals():
+        for k in TFmech.keys():
+            TFmech[k] = False
 
 ##MAIN
 #Incoporates code from Robert et. Al <3
@@ -171,8 +212,10 @@ else:
 
 ##RENDER
 path = 'Admit_table_wCat_csv.csv'
+skip_rest = False #initializes skip variable to default as false
 st.markdown("$\\textsf{\\scriptsize CSV last updated: " + time.ctime(os.path.getmtime(path)) + "}$")
 st.title("Emergency Room Admission Algorithm:")
+#st.button("Clear Selections", on_click = clear_selections())
 
 _ = """ with st.form("my_form"):
    st.write("**Form container:**")
@@ -190,8 +233,43 @@ with Mcolumn1.container(border = True):
 
     #system_selection = column1.selectbox('Pick a system', system_labels, index=0)
     #mechanism_selection = column2.selectbox('Pick a mechanism',mechanism_labels, index=0)
-    system_selection = selection_to_string(column1.radio('**Pick a system**', system_labels_fancy, index=0), system_labels, system_labels_fancy)
-    mechanism_selection = selection_to_string(column2.radio('**Pick a mechanism**',mechanism_labels_fancy, index=0), mechanism_labels, mechanism_labels_fancy)
+    #system_selection = selection_to_string(column1.radio('**Pick a system**', system_labels_fancy, index=0), system_labels, system_labels_fancy)
+    #mechanism_selection = selection_to_string(column2.radio('**Pick a mechanism**',mechanism_labels_fancy, index=0), mechanism_labels, mechanism_labels_fancy)
+    ### Multi-select
+
+
+    def radio_multi(text,dict, labels, fancy_labels = [], column = 0):
+        if not fancy_labels:
+            st.write(text)
+            for label in labels:
+                dict[label] = st.checkbox(label)
+            out_list = read_dict(dict)
+        else:
+            if column == 0:
+                st.write(text)
+                for fancy_label in fancy_labels:
+                    label = selection_to_string(fancy_label, labels, fancy_labels)
+                    dict[label] = st.checkbox(fancy_label)
+                out_list = read_dict(dict)
+            elif column == 1:
+                column1.write(text)
+                for fancy_label in fancy_labels:
+                    label = selection_to_string(fancy_label, labels, fancy_labels)
+                    dict[label] = column1.checkbox(fancy_label)
+                out_list = read_dict(dict)
+            elif column == 2:
+                column2.write(text)
+                for fancy_label in fancy_labels:
+                    label = selection_to_string(fancy_label, labels, fancy_labels)
+                    dict[label] = column2.checkbox(fancy_label)
+                out_list = read_dict(dict)
+        return out_list
+
+    TFsys = {}
+    TFmech = {}
+
+    sys_list = radio_multi("**Please select a system**",TFsys, system_labels, system_labels_fancy, 1)
+    mech_list = radio_multi("**Please select a mechanism**", TFmech, mechanism_labels, mechanism_labels_fancy, 2)
 
     # This is outside the form
     #st.write("Mechanism: ",mechanism_selection)
@@ -199,8 +277,8 @@ with Mcolumn1.container(border = True):
     #st.write("\n\n")
     #st.write("Manual search: ", manual)
 
-    sub0_sys = explicitSearch(system_selection, df, col6)
-    sub0_mech = explicitSearch(mechanism_selection, sub0_sys, col7)
+    sub0_sys = explicitSearchList(sys_list, df, col6)
+    sub0_mech = explicitSearchList(mech_list, sub0_sys, col7)
 
     #st.write(sub0_mech) 
 
@@ -210,7 +288,9 @@ with Mcolumn1.container(border = True):
 
 with Mcolumn1.container(border = True):
     #prompt1 = st.selectbox('Pick a problem', working_labels)
-    prompt1 = st.radio('**Pick a problem**', working_labels)
+
+    TFprompt1 = {}
+    prompt1 = radio_multi('**Pick a problem**', TFprompt1, working_labels)
 
     _ = """
     with st.container():
@@ -222,22 +302,24 @@ with Mcolumn1.container(border = True):
     """
 
     #sub1 = fuzzysearch(prompt1,sub0_mech,"text")
-    if prompt1:
-        sub1 = explicitSearch(prompt1, sub0_mech, col1)
+    if not prompt1 == []:
+        sub1 = explicitSearchList(prompt1, sub0_mech, col1)
         #st.write(sub1)
     else:
         sub1 = sub0_mech
         st.subheader("No results match this search, please try another selection.")
+        skip_rest = True
 
     working_SF1 = list(set(sub1[col2].tolist()))
 
-    if any(sub1[col2].apply(lambda x: isinstance(x, str) and x.strip() != '') if sub1[col2].dtype == 'O' else sub1[col2].notna()):
+    if skip_rest:
+        sub2 = sub1
+    elif any(sub1[col2].apply(lambda x: isinstance(x, str) and x.strip() != '') if sub1[col2].dtype == 'O' else sub1[col2].notna()):
         #prompt2 = st.selectbox('Pick a category', working_SF1)
         prompt2 = st.radio('**Pick a category**', working_SF1)
         if prompt2:
             sub2 = explicitSearch(prompt2, sub1, col2)
             #st.write(sub2)
-
     else:
 
         sub2 = sub1
@@ -245,7 +327,9 @@ with Mcolumn1.container(border = True):
 
     working_SF2 = list(set(sub2[col3].tolist()))
 
-    if any(sub2[col3].apply(lambda x: isinstance(x, str) and x.strip() != '') if sub2[col3].dtype == 'O' else sub2[col3].notna()):
+    if skip_rest:
+        sub3 = sub2
+    elif any(sub2[col3].apply(lambda x: isinstance(x, str) and x.strip() != '') if sub2[col3].dtype == 'O' else sub2[col3].notna()):
         #prompt3 = st.selectbox('Pick a specific category', working_SF2)
         prompt3 = st.radio('**Pick a specific category**', working_SF2)
         if prompt3:
@@ -258,13 +342,25 @@ with Mcolumn1.container(border = True):
 config = {"Admitting Service": st.column_config.TextColumn(width="large"), "Notes": st.column_config.TextColumn(width="large")}
 admitting_service = sub3[col4]
 list_of_admitting_service = admitting_service.tolist()
-print("the ADMITTING SERVICE is:" + admitting_service)
+print("the ADMITTING SERVICE is:" + str(list_of_admitting_service))
 print("HIIIIIII")
 
 with Mcolumn2.container(border = True):
     st.subheader("Recommended admitting service:")
-    st.dataframe(sub3, hide_index = True, column_order = (col4, col5), use_container_width=True, column_config=config)
-
+    if "sub3" in globals():
+        admits = pd.DataFrame({'Admitting Service': list(set(sub3[col4].tolist()))})
+        #st.dataframe(sub3, hide_index = True, column_order = (col4, col5), use_container_width=True, column_config=config)
+    elif "sub2" in globals():
+        admits = pd.DataFrame({'Admitting Service': list(set(sub2[col4].tolist()))})
+    elif "sub1" in globals():
+        admits = pd.DataFrame({'Admitting Service': list(set(sub1[col4].tolist()))})
+    elif "sub0_mech" in globals():
+        admits = pd.DataFrame({'Admitting Service': list(set(sub0_mech[col4].tolist()))})
+    elif "sub0_sys" in globals():
+        admits = pd.DataFrame({'Admitting Service': list(set(sub0_sys[col4].tolist()))})
+    else:
+        admits = pd.DataFrame({'Admitting Service': list(set(df[col4].tolist()))})
+    st.dataframe(admits, hide_index = True, use_container_width=True, column_config=config)
 #NOT DONE YET: last little bug to fix: need to retrieve the final admitting service (without the weird dtype and name thingy from the dataframe,.....)
 #function that will collect all data (user input + feedback) into a csv
 def collect_user_data(data_file_path, sys,mec,prob,cat,scat,ads,aod,comment):
@@ -306,15 +402,18 @@ with Mcolumn2.container(border = True):
     if agree == "No":
         comment = st.text_input("**Comments**")
     submitted = st.button("Submit")
+    if submitted:
+        st.write("Submitted Successfully")
 
 if submitted:
+    print(list(set(df[col4].tolist())))
     #write to csv
     if 'prompt2' not in globals(): #if prompt2 was never initialized because it wasn't an option for the user
         prompt2 = "none"
     if 'comment' not in globals(): #if comment was never initialized because user clicked "Agree" for the feedback
         comment = "none"
-    print(system_selection, mechanism_selection, prompt1, prompt2, prompt3, admitting_service, agree, comment)
-    collect_user_data("user_data.csv", system_selection, mechanism_selection, prompt1, prompt2, prompt3, admitting_service, agree, comment)
+    print(system_selection, mechanism_selection, prompt1, prompt2, prompt3, list_of_admitting_service, agree, comment)
+    collect_user_data("user_data.csv", system_selection, mechanism_selection, prompt1, prompt2, prompt3, list_of_admitting_service, agree, comment)
     #[system_selection, mechanism_selection, prompt1, prompt2, prompt3, agree, comment]
 
 

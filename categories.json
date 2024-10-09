@@ -1,6 +1,5 @@
 {"system":
     [
-        "no selection",
         "respiratory",
         "HEENT",
         "cardiovascular",
@@ -14,7 +13,6 @@
     ],
 "mechanism":
     [
-        "no selection",
         "vascular",
         "infectious",
         "neoplastic",
@@ -24,7 +22,6 @@
     ],
 "system fancy":
     [
-        ":no_entry_sign: No Selection",
         ":wind_blowing_face: Respiratory",
         ":bald_man: HEENT",
         ":heart: Cardiovascular",
@@ -38,7 +35,6 @@
     ],
 "mechanism fancy":
     [
-        ":no_entry_sign: No Selection",
         ":drop_of_blood: Vascular",
         ":microbe: Infectious",
         ":reminder_ribbon: Neoplastic",
